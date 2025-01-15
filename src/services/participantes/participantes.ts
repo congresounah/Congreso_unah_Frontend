@@ -1,10 +1,10 @@
 import { Participantes } from "@/interfaces/participantes";
 import axios from "axios";
-const BASE_URL = "http://congreso-unah-backend.vercel.app";
+const BASE_URL = "https://congreso-unah-backend.vercel.app";
 
 export async function obtenerUsuarios(): Promise<Participantes[]> {
     try {
-      const response = await fetch('http://congreso-unah-backend.vercel.app/admin/certificates/accepted/users', {
+      const response = await fetch('https://congreso-unah-backend.vercel.app/admin/certificates/accepted/users', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -29,7 +29,7 @@ export async function obtenerUsuarios(): Promise<Participantes[]> {
   
 export async function obtenerUsuariosParaChequear(estado: boolean | null): Promise<Participantes[]> {
   try {
-    const response = await fetch('http://congreso-unah-backend.vercel.app/admin/validaciones', {
+    const response = await fetch('https://congreso-unah-backend.vercel.app/admin/validaciones', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

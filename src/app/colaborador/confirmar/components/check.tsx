@@ -15,7 +15,7 @@ const CheckComponent = () => {
 
 
       try {
-        const response = await fetch('http://congreso-unah-backend.vercel.app/conferencias/fecha', {
+        const response = await fetch('https://congreso-unah-backend.vercel.app/conferencias/fecha', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -63,8 +63,8 @@ const CheckComponent = () => {
     try {
       const url =
         type === 'entrada'
-          ? 'http://congreso-unah-backend.vercel.app/usuario/asistencia/hora/entrada'
-          : 'http://congreso-unah-backend.vercel.app/usuario/asistencia/hora/salida';
+          ? 'https://congreso-unah-backend.vercel.app/usuario/asistencia/hora/entrada'
+          : 'https://congreso-unah-backend.vercel.app/usuario/asistencia/hora/salida';
   
       const method = type === 'entrada' ? 'POST' : 'PUT';
   
@@ -129,7 +129,7 @@ const CheckComponent = () => {
   };
 
   const navigateToMainPage = () => {
-    window.location.href = 'https://congreso-universitario.vercel.app/colaborador/escaner';
+    window.location.href = 'https://congreso-unah-backend.vercel.app/colaborador/escaner';
   };
 
   return (

@@ -37,7 +37,7 @@ export default function SubirPdf({ onSubmit, initialUploadedFileUrl, nombre_prod
     setIsLoading(true);
 
     try {
-      const res = await fetch('http://congreso-unah-backend.vercel.app/conferencias/subirRecurso', {
+      const res = await fetch('https://congreso-unah-backend.vercel.app/conferencias/subirRecurso', {
         method: 'POST',
         body: formData,
       });
