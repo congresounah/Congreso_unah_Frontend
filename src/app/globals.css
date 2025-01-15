@@ -1,0 +1,253 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #101017;
+  --foreground: #fff;
+}
+
+body {
+  font-family: "HelveticaCustom", "Montserrat", sans-serif;
+  width: 100%;
+}
+
+@font-face {
+  font-family: "HelveticaCustom";
+  src: url("/fonts/Helvetica.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+.montserrat-font {
+  font-family: "Montserrat", sans-serif;
+}
+
+
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+.shake {
+  animation: shake 0.5s;
+}
+
+@keyframes floatFromBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(80px); /* Empieza desde abajo fuera de vista */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* Llega a su posición normal */
+  }
+}
+
+.float-from-bottom {
+  animation: floatFromBottom 1.5s ease-in-out forwards; /* Animación suave y gradual */
+}
+
+/* Animación flotando desde la derecha */
+@keyframes floatFromRight {
+  0% {
+    opacity: 0;
+    transform: translateX(80px); /* Empieza desde la derecha fuera de vista */
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0); /* Llega a su posición normal */
+  }
+}
+
+.float-from-right {
+  animation: floatFromRight 2s ease-in-out forwards; /* Animación suave y gradual */
+}
+
+/* Animación flotando desde la izquierda */
+@keyframes floatFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-80px); /* Empieza desde la izquierda fuera de vista */
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0); /* Llega a su posición normal */
+  }
+}
+
+.float-from-left {
+  animation: floatFromLeft 2s ease-in-out forwards; /* Animación suave y gradual */
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px); /* Desplazamiento desde abajo */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* Vuelve a su posición original */
+  }
+}
+
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px); /* Desplazamiento desde la izquierda */
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0); /* Vuelve a su posición original */
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+.fade-in-left {
+  animation: fadeInLeft 1s ease-out forwards;
+}
+
+/* Animación de escritura */
+@keyframes typing {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes slide-up {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes typing {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%; /* Limita el ancho al contenido real */
+  }
+}
+
+@keyframes blink-cursor {
+  0% {
+    border-right-color: white;
+  }
+  50% {
+    border-right-color: transparent;
+  }
+  100% {
+    border-right-color: white;
+  }
+}
+
+.typing-effect {
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+  border-right: 2px solid white;
+  animation: typing 2s steps(11, end) 1 forwards, blink-cursor 0.5s step-end infinite;
+  width: 0; /* Inicia el ancho en 0 */
+}
+
+
+/* Estilos adicionales para asegurar que el texto se vea */
+.text-shadow-lg {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+input:-webkit-autofill {
+  background-color: transparent !important; /* Fondo transparente */
+  color: white !important; /* Mantén el color del texto */
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+input:-webkit-autofill::first-line {
+  font-size: inherit;
+  font-family: inherit;
+  color: white;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+}
+
+.animate-slideIn {
+  animation: slideIn 0.3s ease-out forwards;
+}
+
+.animate-slideOut {
+  animation: slideOut 0.3s ease-in forwards;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  border-radius: 4px;
+  margin-right: 2px;
+  opacity: 0.6;
+  filter: invert(0.8);
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}
+
+.Toastify__progress-bar--success {
+  background: blue;
+}
+
+.Toastify__progress-bar--error {
+  background: blue;
+}
