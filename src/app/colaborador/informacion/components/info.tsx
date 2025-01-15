@@ -35,7 +35,7 @@ const UserInfoCard: React.FC<UserInfoCardProps> = ({ id }) => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `https://backend-congreso.vercel.app/conferencias/usuario/${id}/asistencias`
+          `http://congreso-unah-backend.vercel.app/conferencias/usuario/${id}/asistencias`
         );
 
         if (!response.ok) {

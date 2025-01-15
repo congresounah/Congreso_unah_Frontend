@@ -15,7 +15,7 @@ const CheckComponent = () => {
 
 
       try {
-        const response = await fetch('https://backend-congreso.vercel.app/conferencias/fecha', {
+        const response = await fetch('http://congreso-unah-backend.vercel.app/conferencias/fecha', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -63,8 +63,8 @@ const CheckComponent = () => {
     try {
       const url =
         type === 'entrada'
-          ? 'https://backend-congreso.vercel.app/usuario/asistencia/hora/entrada'
-          : 'https://backend-congreso.vercel.app/usuario/asistencia/hora/salida';
+          ? 'http://congreso-unah-backend.vercel.app/usuario/asistencia/hora/entrada'
+          : 'http://congreso-unah-backend.vercel.app/usuario/asistencia/hora/salida';
   
       const method = type === 'entrada' ? 'POST' : 'PUT';
   
