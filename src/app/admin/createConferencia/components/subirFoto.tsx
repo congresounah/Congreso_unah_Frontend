@@ -29,7 +29,7 @@ const UploadModal: React.FC<UploadModalProps> = ({ isOpen, onClose, onImageUploa
         const formData = new FormData();
         formData.append('file', file);
 
-        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/image/upload`, {
+        const response = await fetch(`https://congreso-unah-backend.vercel.app/image/upload`, {
           method: 'POST',
           body: formData,
         });
