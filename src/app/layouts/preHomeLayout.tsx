@@ -23,7 +23,7 @@ export default function PreHomeLayout({ children }: { children: React.ReactNode 
 
 {/*                 <button className='absolute left-4 top-4 z-10 bg-white'>Regresar a landing </button>
  */}                <img
-                    src="/img/landing/promo.enc"
+                    src="/img/landing/promo2.jpg"
                     alt="login ilustracion"
                     className="w-[60%] rounded-lg shadow-[8px_8px_15px_rgba(0,0,0,0.5),-4px_-4px_10px_rgba(255,255,255,0.2)] fade-in-up place-self-center hidden xl:block"
                 />

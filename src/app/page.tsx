@@ -159,7 +159,7 @@ export default function Home() {
         {/* seccion de invitacion a descargar cronograma */}
         <section className="w-full mt-12 xl:mt-0 xl:h-screen flex flex-col lg:flex-row items-center justify-center gap-12 px-8 animate-from-right sm:flex-col-reverse opacity-0 translate-x-[80px]">
           <img
-            src="/img/landing/promo.enc"
+            src="/img/landing/promo2.jpg"
             alt="Cronograma del evento"
             className="rounded-tl-[40px] rounded-br-[40px] w-full md:w-[50%] max-w-[450px] shadow-[8px_8px_15px_rgba(0,0,0,0.5),-4px_-4px_10px_rgba(255,255,255,0.2)]"
           />
