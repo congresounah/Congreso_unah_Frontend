@@ -46,7 +46,7 @@ export const crearConferencia = async (data: CrearConferencia) => {
 
 export const editarConferencia = async (data: CreateConferencia) => {
   try {
-    const response = await axios.put(`https://congreso-unah-backend.vercel.app}/conferencias/editar`, data, {
+    const response = await axios.put(`https://congreso-unah-backend.vercel.app/conferencias/editar`, data, {
       headers: {
         "Content-Type": "application/json",
       },
