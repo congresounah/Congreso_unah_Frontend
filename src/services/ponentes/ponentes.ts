@@ -2,7 +2,7 @@ import { Ponentes } from "@/interfaces/ponentes";
 
 
 export const fetchPonentes = async (): Promise<Ponentes[]> => {
-    const response = await fetch("http://congreso-unah-backend.vercel.app/ponentes/");
+    const response = await fetch("https://congreso-unah-backend.vercel.app/ponentes/");
     if (!response.ok) {
       throw new Error("Error al obtener los ponentes");
     }
