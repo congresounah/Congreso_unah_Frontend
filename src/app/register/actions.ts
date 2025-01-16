@@ -38,9 +38,10 @@ const handleUploadReceiptImage = async (image: File) => {
 }
 
 export const getUniversities = async () => {
+    const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
     try {
-        const response = await fetch(`https://congreso-unah-backend.vercel.app/usuario/universidades`, {
+        const response = await fetch(`${API_URL}/usuario/universidades`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
