@@ -1,10 +1,9 @@
 import { Participantes } from "@/interfaces/participantes";
 import axios from "axios";
-const BASE_URL = process.env.NEXT_PUBLIC_API_URL;
 
 export async function obtenerUsuarios(): Promise<Participantes[]> {
     try {
-      const response = await fetch(`${BASE_URL}/admin/certificates/accepted/users`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/admin/certificates/accepted/users`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -29,7 +28,7 @@ export async function obtenerUsuarios(): Promise<Participantes[]> {
   
 export async function obtenerUsuariosParaChequear(estado: boolean | null): Promise<Participantes[]> {
   try {
-    const response = await fetch(`${BASE_URL}/admin/validaciones`, {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/admin/validaciones`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -53,7 +52,7 @@ export async function obtenerUsuariosParaChequear(estado: boolean | null): Promi
 
 export const actualizarEstadoUsuario = async (idUsuario: string, nuevoEstado: boolean) => {
   try {
-    const response = await axios.put(`${BASE_URL}/admin/validar/usuario/${idUsuario}`, {
+    const response = await axios.put(`${process.env.NEXT_PUBLIC_API_URL}/admin/validar/usuario/${idUsuario}`, {
       nuevo_estado: nuevoEstado,
     });
     return response.data; // Retorna la respuesta del backend

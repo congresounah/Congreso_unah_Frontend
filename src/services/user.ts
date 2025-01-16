@@ -1,13 +1,12 @@
 import { Asistencias } from "@/interfaces/participantes";
 import { ActualizarUser, UsuarioRecibo } from "@/interfaces/user";
 
-const BASE_URL = process.env.NEXT_PUBLIC_API_URL;
 
 
 
 export const updateUser = async (id_usuario:number, formData: ActualizarUser): Promise<UsuarioRecibo | null> => {
     try {
-        const response = await fetch(`${BASE_URL}/admin/actualizar/usuario/${id_usuario}`, {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/admin/actualizar/usuario/${id_usuario}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -51,7 +50,7 @@ export const resetPwd = async (correo: string, nuevaContrasena: string) => {
 
 export const fetchUsuarioById = async (id: number): Promise<UsuarioRecibo | null> => {
   try {
-    const response = await fetch(`${BASE_URL}/admin/user/${id}`);
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/admin/user/${id}`);
     
     if (!response.ok) {
       console.error(`Error al obtener los datos: ${response.status} - ${response.statusText}`);
@@ -76,7 +75,7 @@ export const fetchUsuarioById = async (id: number): Promise<UsuarioRecibo | null
 
 export const updateUsuarioById = async (id_usuario: number, formData: ActualizarUser): Promise<UsuarioRecibo | null> => {
   try {
-    const response = await fetch(`${BASE_URL}/admin/user/${id_usuario}`, {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/admin/user/${id_usuario}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -108,7 +107,7 @@ export const updateUsuarioById = async (id_usuario: number, formData: Actualizar
 
 export const fetchAsistenciasByUsuarioId = async (id_usuario: number): Promise<Asistencias | null> => {
   try {
-    const response = await fetch(`${BASE_URL}/conferencias/usuario/${id_usuario}/asistencias`);
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/conferencias/usuario/${id_usuario}/asistencias`);
 
     if (!response.ok) {
       console.error(`Error al obtener las asistencias: ${response.status} - ${response.statusText}`);
@@ -133,7 +132,7 @@ export const fetchAsistenciasByUsuarioId = async (id_usuario: number): Promise<A
 
 export const downloadCertificateById = async (id_usuario: number): Promise<void> => {
   try {
-    const response = await fetch(`${BASE_URL}/admin/certificates/download/${id_usuario}`);
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/admin/certificates/download/${id_usuario}`);
 
     if (!response.ok) {
       console.error(`Error al descargar el certificado: ${response.status} - ${response.statusText}`);

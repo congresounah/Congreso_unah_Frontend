@@ -3,13 +3,13 @@ import { RegisterFormInterface } from "@/interfaces/RegisterForm";
 import { genders } from '@/app/constants/genders';
 
 export const logout = async (email: string) => {
-    const API_URL = process.env.NEXT_PUBLIC_API_URL;
-    if (!API_URL) {
+   
+    if (!process.env.NEXT_PUBLIC_API_URL) {
         throw new Error('API_URL is not defined');
     }
 
     try {
-        const response = await fetch(`${API_URL}/usuario/logout`, {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/usuario/logout`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -33,8 +33,8 @@ export const logout = async (email: string) => {
 }
 
 export const register = async (formData: RegisterFormInterface) => {
-    const API_URL = process.env.NEXT_PUBLIC_API_URL;
-    if (!API_URL) {
+   
+    if (!process.env.NEXT_PUBLIC_API_URL) {
         throw new Error('API_URL is not defined');
     }
 
@@ -49,7 +49,7 @@ export const register = async (formData: RegisterFormInterface) => {
     };
 
     try {
-        const response = await fetch(`${API_URL}/usuario/registrar`, {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/usuario/registrar`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -73,13 +73,13 @@ export const register = async (formData: RegisterFormInterface) => {
 };
 
 export const sendCodeToVerifyUser = async (email: string, code: number) => {
-    const API_URL = process.env.NEXT_PUBLIC_API_URL;
-    if (!API_URL) {
+    
+    if (!process.env.NEXT_PUBLIC_API_URL) {
         throw new Error('API_URL is not defined');
     }
 
     try {
-        const response = await fetch(`${API_URL}/usuario/verificarcodigo`, {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/usuario/verificarcodigo`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -107,13 +107,13 @@ export const sendCodeToVerifyUser = async (email: string, code: number) => {
 }
 
 export const emailExists = async (email: string) => {
-    const API_URL = process.env.NEXT_PUBLIC_API_URL;
-    if (!API_URL) {
+    
+    if (!process.env.NEXT_PUBLIC_API_URL) {
         throw new Error('API_URL is not defined');
     }
 
     try {
-        const response = await fetch(`${API_URL}/usuario/verificacion/existe`, {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/usuario/verificacion/existe`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -138,8 +138,8 @@ export const emailExists = async (email: string) => {
 }
 
 export const uploadReceiptImage = async (image: File) => {
-    const API_URL = process.env.NEXT_PUBLIC_API_URL;
-    if (!API_URL) {
+    
+    if (!process.env.NEXT_PUBLIC_API_URL) {
         throw new Error('API_URL is not defined');
     }
 
@@ -147,7 +147,7 @@ export const uploadReceiptImage = async (image: File) => {
     formData.append('file', image);
 
     try {
-        const response = await fetch(`${API_URL}/image/upload`, {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/image/upload`, {
             method: 'POST',
             body: formData,
         });
@@ -169,13 +169,13 @@ export const uploadReceiptImage = async (image: File) => {
 
 /* Para cambio de contraseña (forgot-password) */
 export const sendEmailToResetPassword = async (email: string) => {
-    const API_URL = process.env.NEXT_PUBLIC_API_URL;
-    if (!API_URL) {
+
+    if (!process.env.NEXT_PUBLIC_API_URL) {
         throw new Error('API_URL is not defined');
     }
 
     try {
-        const response = await fetch(`${API_URL}/usuario/verificacion/contrasena`, {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/usuario/verificacion/contrasena`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -199,13 +199,13 @@ export const sendEmailToResetPassword = async (email: string) => {
 }
 
 export const sendCodeToResetPassword = async (email : string, code : number) => {
-    const API_URL = process.env.NEXT_PUBLIC_API_URL;
-    if (!API_URL) {
+    
+    if (!process.env.NEXT_PUBLIC_API_URL) {
         throw new Error('API_URL is not defined');
     }
 
     try {
-        const response = await fetch(`${API_URL}/usuario/verificarcodigo`, {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/usuario/verificarcodigo`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -237,13 +237,13 @@ export const sendCodeToResetPassword = async (email : string, code : number) => 
 }
 
 export const resendCodeToVerifyUser = async (email : string) => {
-    const API_URL = process.env.NEXT_PUBLIC_API_URL;
-    if (!API_URL) {
+    
+    if (!process.env.NEXT_PUBLIC_API_URL) {
         throw new Error('API_URL is not defined');
     }
 
     try {
-        const response = await fetch(`${API_URL}/usuario/verificacion/reenviarcorreo`, {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/usuario/verificacion/reenviarcorreo`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -267,13 +267,13 @@ export const resendCodeToVerifyUser = async (email : string) => {
 }
 
 export const sendNewPassword = async (email : string, password : string) => {
-    const API_URL = process.env.NEXT_PUBLIC_API_URL;
-    if (!API_URL) {
+    
+    if (!process.env.NEXT_PUBLIC_API_URL) {
         throw new Error('API_URL is not defined');
     }
 
     try {
-        const response = await fetch(`${API_URL}/usuario/cambiarcontrasena`, {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/usuario/cambiarcontrasena`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -297,13 +297,13 @@ export const sendNewPassword = async (email : string, password : string) => {
 }
 
 export const isRegisterAvailable = async () => {
-    const API_URL = process.env.NEXT_PUBLIC_API_URL;
-    if (!API_URL) {
+    
+    if (!process.env.NEXT_PUBLIC_API_URL) {
         throw new Error('API_URL is not defined');
     }
 
     try {
-        const response = await fetch(`${API_URL}/usuario/pre-registro`, {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/usuario/pre-registro`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',

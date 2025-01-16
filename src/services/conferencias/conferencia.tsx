@@ -1,13 +1,13 @@
 import { Conferencia, ConferenciaCompleta, CrearConferencia, CreateConferencia } from "@/interfaces/conferencias";
 import axios from "axios";
-const BASE_URL = process.env.NEXT_PUBLIC_API_URL;
+
 
 export const uploadImage = async (file: File) => {
   const formData = new FormData();
   formData.append('file', file);
 
   try {
-    const response = await fetch(`${BASE_URL}/image/upload`, {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/image/upload`, {
       method: 'POST',
       body: formData,
     });
@@ -27,7 +27,7 @@ export const uploadImage = async (file: File) => {
 
 export const crearConferencia = async (data: CrearConferencia) => {
   try {
-    const response = await axios.post(`${BASE_URL}/conferencias/insertar`, data, {
+    const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/conferencias/insertar`, data, {
       headers: {
         "Content-Type": "application/json",
       },
@@ -46,7 +46,7 @@ export const crearConferencia = async (data: CrearConferencia) => {
 
 export const editarConferencia = async (data: CreateConferencia) => {
   try {
-    const response = await axios.put(`${BASE_URL}/conferencias/editar`, data, {
+    const response = await axios.put(`${process.env.NEXT_PUBLIC_API_URL}/conferencias/editar`, data, {
       headers: {
         "Content-Type": "application/json",
       },
@@ -65,7 +65,7 @@ export const editarConferencia = async (data: CreateConferencia) => {
 
 export async function obtenerConferencia(id : string): Promise<ConferenciaCompleta> {
   try {
-    const response = await fetch(`${BASE_URL}/conferencias/${id}`, {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/conferencias/${id}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -88,7 +88,7 @@ export async function obtenerConferencia(id : string): Promise<ConferenciaComple
 
 export const obtenerConferencias = async (dia: string|null): Promise<Conferencia[]> =>{
     try {
-      const response = await fetch(`${BASE_URL}/conferencias`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/conferencias`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -111,7 +111,7 @@ export const obtenerConferencias = async (dia: string|null): Promise<Conferencia
 
   export const eliminarConferencia = async (id: number): Promise<{ message: string }> => {
     try {
-      const response = await axios.delete(`${BASE_URL}/conferencias/eliminar/${id}`);
+      const response = await axios.delete(`${process.env.NEXT_PUBLIC_API_URL}/conferencias/eliminar/${id}`);
       return response.data; // Retorna el mensaje de la respuesta
     } catch (error: unknown) {
       if (axios.isAxiosError(error)) {
@@ -126,7 +126,7 @@ export const obtenerConferencias = async (dia: string|null): Promise<Conferencia
 
   export const inscribirseEnConferencia = async (id_usuario: number, id_conferencia: number) => {
     try {
-      const response = await axios.post(`${BASE_URL}/usuario/inscripcion/conferencia`, {
+      const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/usuario/inscripcion/conferencia`, {
         id_usuario,
         id_conferencia,
       }, {
@@ -150,7 +150,7 @@ export const obtenerConferencias = async (dia: string|null): Promise<Conferencia
 
   export const cancelarInscripcionConferencia = async (id_usuario: number, id_conferencia: number) => {
     try {
-      const response = await axios.delete(`${BASE_URL}/usuario/inscripcion/cancelarConferencia`, {
+      const response = await axios.delete(`${process.env.NEXT_PUBLIC_API_URL}/usuario/inscripcion/cancelarConferencia`, {
         headers: {
           "Content-Type": "application/json",
         },

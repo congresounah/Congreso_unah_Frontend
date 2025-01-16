@@ -1,8 +1,7 @@
 export const login = async (email: string, password: string): Promise<{ error?: string; codigoResultado?: number; token?: string; statusCode?: number }> => {
-    const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
     try {
-        const response = await fetch(`${API_URL}/usuario/login`, {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/usuario/login`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -27,13 +26,13 @@ export const login = async (email: string, password: string): Promise<{ error?: 
 
 /* Verifica si hay menos de 500 usuarios inscritos verificados para ver si ocultamos o no el boton de registro */
 export const showRegister = async () => {
-    const API_URL = process.env.NEXT_PUBLIC_API_URL;
-    if (!API_URL) {
+    
+    if (!process.env.NEXT_PUBLIC_API_URL) {
         throw new Error('API_URL is not defined');
     }
 
     try {
-        const response = await fetch(`${API_URL}/usuario/pre-registro`, {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/usuario/pre-registro`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',

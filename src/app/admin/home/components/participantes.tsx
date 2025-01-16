@@ -1,42 +1,32 @@
 'use client';
 
-import { useState, useEffect, JSX } from "react";
+import { useState, useEffect} from "react";
 import { FaEdit, FaSearch, FaEye, FaPaperPlane } from "react-icons/fa";
-import { obtenerUsuarios } from "@/services/participantes/participantes"; // Importa el servicio
+import { obtenerUsuarios } from "@/services/participantes/participantes";
 import { Participantes } from "@/interfaces/participantes";
 import { useRouter } from "next/navigation";
 import Loader from "@/components/Loading";
+
+// Componente de alerta reutilizable
+const Alert = ({ message, type }: { message: string; type: "success" | "error" }) => {
+  const bgColor = type === "success" ? "bg-green-500" : "bg-red-500";
+  return (
+    <div className={`${bgColor} text-white px-4 py-2 rounded shadow-lg fixed top-4 right-4`}>
+      {message}
+    </div>
+  );
+};
 
 const TableComponent = () => {
   const [usuarios, setUsuarios] = useState<Participantes[]>([]);
   const router = useRouter();
   const [filteredData, setFilteredData] = useState<Participantes[]>([]);
   const [sortOrder, setSortOrder] = useState<"ASC" | "DESC">("ASC");
-  const [actions, ] = useState<{ desc: string; icon: JSX.Element; bgColor: string; getRoute?: (id: string) => string }[]>([
-    {
-      desc: "Enviar",
-      icon: <FaPaperPlane size={13} />,
-      bgColor: "bg-blue-500",
-      getRoute: (id: string) => `/admin/home/${id}`
-    },
-    {
-      desc: "Editar",
-      icon: <FaEdit size={15} />,
-      bgColor: "bg-yellow-500",
-      getRoute: (id) => `/admin/home/${id}?visualizar=false`
-    },
-    {
-      desc: "Ver",
-      icon: <FaEye size={15}/>,
-      bgColor: "bg-green-500",
-      getRoute: (id) => `/admin/home/${id}?visualizar=true`
-    }
-  ]);
+  const [alert, setAlert] = useState<{ message: string; type: "success" | "error" } | null>(null);
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
 
-  // Fetch data from backend
   useEffect(() => {
     const fetchUsuarios = async () => {
       try {
@@ -44,7 +34,7 @@ const TableComponent = () => {
         const data = await obtenerUsuarios();
         setUsuarios(data);
         setFilteredData(data);
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       } catch (err) {
         setError("Error al cargar los usuarios.");
       } finally {
@@ -76,13 +66,35 @@ const TableComponent = () => {
     setFilteredData(filtered);
   };
 
+  const enviarCertificado = async (id: string) => {
+    try {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/admin/certificates/send/${id}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (response.ok) {
+        setAlert({ message: `Certificado enviado exitosamente`, type: "success" });
+      } else {
+        const errorData = await response.json();
+        setAlert({ message: `Error al enviar el certificado: ${errorData.message}`, type: "error" });
+      }
+    } catch (error) {
+      setAlert({ message: `Error al enviar el certificado: ${error}`, type: "error" });
+    }
+
+    setTimeout(() => setAlert(null), 3000);
+  };
+
   if (loading) {
     return (
-        <div className="flex justify-center items-center h-screen">
-            <Loader />
-        </div>
+      <div className="flex justify-center items-center h-screen">
+        <Loader />
+      </div>
     );
-}
+  }
 
   if (error) {
     return <p className="text-center text-red-500">{error}</p>;
@@ -90,6 +102,7 @@ const TableComponent = () => {
 
   return (
     <div className="overflow-x-auto px-4">
+      {alert && <Alert message={alert.message} type={alert.type} />}
       <h2 className="text-3xl mb-6 text-black border-b-[1px] border-gray-300 pb-1">Participantes</h2>
       <div className="flex flex-wrap justify-between items-center mb-4 gap-2">
         <div className="flex items-center w-full sm:w-1/3 bg-gray-100 rounded-full px-4 py-1">
@@ -135,24 +148,27 @@ const TableComponent = () => {
                 <td className="px-4 py-2 border-b">{usuario.correo}</td>
                 <td className="px-4 py-2 border-b text-center">
                   <div className="flex flex-col lg:flex-row items-center justify-center gap-1">
-                    {
-                      actions.map((action, i) => (
-                        <button
-                          className={`bg-blue-500 text-white px-2 py-1 rounded shadow hover:bg-blue-600 text-sm font-300 flex items-center gap-1 w-full ${action.bgColor}`}
-                          onClick={() => {
-                            if (action.getRoute) {
-                              const route = action.getRoute(usuario.id_usuario.toString());
-                              const validUrl = new URL(route, window.location.origin).toString(); // Asegura que la URL sea completa
-                              router.push(validUrl); // Redirige con la URL completa
-                            }
-                          }}
-                          key={`${usuario.id_usuario}-${action.icon}-${i}`} // Combina valores para crear una clave única
-                        >
-                          <span className="material-symbols-outlined text-xs">{action.icon}</span>
-                          {action.desc}
-                        </button>
-                      ))
-                    }
+                    <button
+                      className="bg-blue-500 text-white px-2 py-1 rounded shadow hover:bg-blue-600 text-sm font-300 flex items-center gap-1 w-full"
+                      onClick={() => enviarCertificado(usuario.id_usuario.toString())}
+                    >
+                      <FaPaperPlane size={13} />
+                      Enviar
+                    </button>
+                    <button
+                      className="bg-yellow-500 text-white px-2 py-1 rounded shadow hover:bg-yellow-600 text-sm font-300 flex items-center gap-1 w-full"
+                      onClick={() => router.push(`/admin/home/${usuario.id_usuario}?visualizar=false`)}
+                    >
+                      <FaEdit size={15} />
+                      Editar
+                    </button>
+                    <button
+                      className="bg-green-500 text-white px-2 py-1 rounded shadow hover:bg-green-600 text-sm font-300 flex items-center gap-1 w-full"
+                      onClick={() => router.push(`/admin/home/${usuario.id_usuario}?visualizar=true`)}
+                    >
+                      <FaEye size={15} />
+                      Ver
+                    </button>
                   </div>
                 </td>
               </tr>
