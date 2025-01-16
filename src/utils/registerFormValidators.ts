@@ -134,8 +134,8 @@ export function validateReceiptCode(receiptCode: string): string {
 }
 
 export function validateOrganizerCode(organizerCode: string): string {
-    if (organizerCode.length !== 4) {
-        return "Codigo de organizador inválido";
+    if (organizerCode !== process.env.NEXT_PUBLIC_ORG_CODE) {
+        return "Código de organizador incorrecto";
     }
 
     return "";

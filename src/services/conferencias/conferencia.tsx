@@ -1,13 +1,13 @@
 import { Conferencia, ConferenciaCompleta, CrearConferencia, CreateConferencia } from "@/interfaces/conferencias";
 import axios from "axios";
-const BASE_URL = "https://congreso-unah-backend.vercel.app";
+const BASE_URL = process.env.NEXT_PUBLIC_API_URL;
 
 export const uploadImage = async (file: File) => {
   const formData = new FormData();
   formData.append('file', file);
 
   try {
-    const response = await fetch('https://congreso-unah-backend.vercel.app/image/upload', {
+    const response = await fetch(`${BASE_URL}/image/upload`, {
       method: 'POST',
       body: formData,
     });

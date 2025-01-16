@@ -104,15 +104,16 @@ export default function Home() {
 
   const navbarOptions = [
     { name: "Inicio", icon: "home", link: "#inicio" },
-    { name: "Nuestro Objetivo", icon: "bookmark_flag", link: "#objetivo" },
-    { name: "Detalles de Pago", icon: "bookmark_flag", link: "#pago" },
+    { name: "Objetivo", icon: "bookmark_flag", link: "#objetivo" },
+    { name: "Inscripción", icon: "edit", link: "#pago" },
     { name: "Conferencias", icon: "import_contacts", link: "#conferencias" },
     { name: "Ponentes", icon: "group", link: "#ponentes" },
   ];
 
+
   return (
     <div className="flex flex-col justify-center bg-[#101017] text-white font-extralight w-full overflow-hidden" suppressHydrationWarning >
-      <Navbar options={navbarOptions}  />
+      <Navbar options={navbarOptions} />
 
       {/* imagen promocional de inicio */}
       <header className="relative w-full h-screen overflow-hidden" id="inicio">
@@ -135,18 +136,18 @@ export default function Home() {
             UNAH 2025
           </span>
           {showRegisterButton && (
-              <Button
-                text="Registrarme ahora"
-                action={() => router.push("/register")}
-                variant="primary"
-                styleType="outlined"
-                className="mt-4 tracking-wide"
-              >
-                <span className="material-symbols-outlined">
-                  account_circle
-                </span>
-              </Button>
-            )}
+            <Button
+              text="Registrarme ahora"
+              action={() => router.push("/register")}
+              variant="primary"
+              styleType="outlined"
+              className="mt-4 tracking-wide"
+            >
+              <span className="material-symbols-outlined">
+                account_circle
+              </span>
+            </Button>
+          )}
         </h1>
 
       </header>
@@ -157,7 +158,7 @@ export default function Home() {
       <main className="w-4/5 mx-auto">
         {/* seccion de invitacion a descargar cronograma */}
         <section className="w-full mt-12 xl:mt-0 xl:h-screen flex flex-col lg:flex-row items-center justify-center gap-12 px-8 animate-from-right sm:flex-col-reverse opacity-0 translate-x-[80px]">
-        <img
+          <img
             src="/img/landing/promo.enc"
             alt="Cronograma del evento"
             className="rounded-tl-[40px] rounded-br-[40px] w-full md:w-[50%] max-w-[450px] shadow-[8px_8px_15px_rgba(0,0,0,0.5),-4px_-4px_10px_rgba(255,255,255,0.2)]"
@@ -213,14 +214,86 @@ export default function Home() {
         </section>
 
         <section className="w-full my-28 xl:my-0 xl:h-screen flex flex-col lg:flex-row items-center justify-center gap-12 px-8 animate-from-right sm:flex-col-reverse opacity-0 translate-x-[80px]" id="pago">
-        <img
-            src="/img/landing/promo.enc"
+          <img
+            src="/img/landing/all-devices.webp"
             alt="Cronograma del evento"
             className="rounded-tl-[40px] rounded-br-[40px] w-full md:w-[50%] max-w-[450px] shadow-[8px_8px_15px_rgba(0,0,0,0.5),-4px_-4px_10px_rgba(255,255,255,0.2)]"
           />
           <div className="flex flex-col gap-8 text-center md:text-left text-3xl md:text-6xl leading-none">
-            <h2 className="text-center lg:text-left">Detalles de Pago</h2>
-            <p className="text-base montserrat-font text-center lg:text-left">Cuenta 282782</p>
+            <h2 className="text-center lg:text-left">¿Cómo me inscribo?</h2>
+            <div className="text-base montserrat-font text-center lg:text-left">
+              {/*               <ol className="list-decimal list-inside flex flex-col gap-4 list:">
+                <li>Recoge tu orden de pago
+                  Puedes obtenerla los días lunes 20 y martes 21 de enero de 2025 en cualquiera de estos puntos:
+                  <ul className="list-disc list-inside ml-4">
+                    <li>Entrada de la Facultad de Ingeniería.</li>
+                    <li>Decanatura de la Facultad de Ciencias Económicas, con el Secretario Académico.</li>
+                    <li>Recepción Académica del Polideportivo.</li>
+                  </ul>
+                </li>
+                <li>Realiza el pago en Banco LAFISE
+                  Presenta tu orden de pago y cancela los L.300 de inscripción.</li>
+                <li>Guarda tu comprobante
+                  Toma una foto del recibo para subirlo al crear tu cuenta en esta aplicación.</li>
+              </ol> */}
+
+              <ol className="flex flex-col gap-4">
+                <li className="flex flex-col md:flex-row md:items-start md:gap-4 gap-2">
+                  <p className="w-10 aspect-square flex justify-center items-center border-2 border-[#F8B133] rounded-full font-bold text-[#F8B133] mx-auto md:mx-0">
+                    1
+                  </p>
+                  <div className="text-center md:text-left md:flex-1">
+                    <h3 className="font-semibold">Recoge tu orden</h3>
+                    <p>
+                      Disponible solo <strong>20 y 21 de enero</strong> en:
+                    </p>
+                    <ul className="list-disc list-inside mt-2">
+                      <li>Facultad de Ingeniería.</li>
+                      <li>Decanatura de Ciencias Económicas.</li>
+                      <li>Recepción Académica del Polideportivo.</li>
+                    </ul>
+                  </div>
+                </li>
+                <li className="flex flex-col md:flex-row md:items-center md:gap-4 gap-2">
+                  <p className="w-10 aspect-square flex justify-center items-center border-2 border-[#F8B133] rounded-full font-bold text-[#F8B133] mx-auto md:mx-0">
+                    2
+                  </p>
+                  <div className="text-center md:text-left md:flex-1">
+                    <h3 className="font-semibold">Paga en banco LAFISE</h3>
+                    <p>
+                      Lleva tu orden y cancela <strong>L.300</strong>.
+                    </p>
+                  </div>
+                </li>
+                <li className="flex flex-col md:flex-row md:items-center md:gap-4 gap-2">
+                  <p className="w-10 aspect-square flex justify-center items-center border-2 border-[#F8B133] rounded-full font-bold text-[#F8B133] mx-auto md:mx-0">
+                    3
+                  </p>
+                  <div className="text-center md:text-left md:flex-1">
+                    <h3 className="font-semibold">Guarda el comprobante</h3>
+                    <p>
+                      Fotografía tu recibo para subirlo en la app.
+                    </p>
+                  </div>
+                </li>
+                <li className="flex flex-col md:flex-row md:items-center md:gap-4 gap-2">
+                  <p className="w-10 aspect-square flex justify-center items-center border-2 border-[#F8B133] rounded-full font-bold text-[#F8B133] mx-auto md:mx-0">
+                    4
+                  </p>
+                  <div className="text-center md:text-left md:flex-1">
+                    <h3 className="font-semibold">Completa tu registro</h3>
+                    <p>
+                      Sube tu comprobante y registra tus datos.
+                    </p>
+                  </div>
+                </li>
+
+                <p>Unicamente contamos con 450 cupos disponibles. <span className="font-semibold">¡No te quedes fuera!</span></p>
+              </ol>
+
+
+
+            </div>
           </div>
         </section>
 
@@ -251,19 +324,18 @@ export default function Home() {
           </div>
         </div>
       </main>
-      <footer className="relative py-4 bg-[#f8b133] mt-36 h-48 text-black overflow-hidden">
+      <footer className="relative py-4 bg-[#f8b133] mt-36 h-48 text-gray-800 overflow-hidden">
         {/* Contenido del footer */}
         <div className="flex flex-col items-start justify-center ml-12 h-full text-xl">
           <p>UNAH 2025</p>
           <ul className="list-none">
             <li>
-              <strong>Teléfono:</strong> 2234-5678
             </li>
             <li>
-              <strong>Email:</strong> contacto@unah.edu
+              <strong>Email:</strong> congresodeinnovacionunah@gmail.com
             </li>
             <li>
-              <strong>Dirección:</strong> Tegucigalpa, Honduras
+              <strong>Dirección:</strong> Ciudad Universitaria, Tegucigalpa, Honduras
             </li>
           </ul>
         </div>

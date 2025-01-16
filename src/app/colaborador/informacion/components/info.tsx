@@ -35,7 +35,7 @@ const UserInfoCard: React.FC<UserInfoCardProps> = ({ id }) => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `https://congreso-unah-backend.vercel.app/conferencias/usuario/${id}/asistencias`
+          `${process.env.NEXT_PUBLIC_API_URL}/conferencias/usuario/${id}/asistencias`
         );
 
         if (!response.ok) {
@@ -211,7 +211,7 @@ const UserInfoCard: React.FC<UserInfoCardProps> = ({ id }) => {
           <button
             onClick={() => {
               if (id) {
-                window.location.href = `https://congreso-unah-backend.vercel.app/colaborador/confirmar/${id}`;
+                window.location.href = `${process.env.NEXT_PUBLIC_API_URL}/colaborador/confirmar/${id}`;
               }
             }}
             className="bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded"

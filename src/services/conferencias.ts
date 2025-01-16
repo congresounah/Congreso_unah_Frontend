@@ -1,7 +1,8 @@
 import { Conferencia } from "@/interfaces/conferencias";
+const BASE_URL = process.env.NEXT_PUBLIC_API_URL;
 
 export const fetchConferencias = async (dia: string): Promise<Conferencia[]> => {
-  const response = await fetch("https://congreso-unah-backend.vercel.app/conferencias", {
+  const response = await fetch(`${BASE_URL}/conferencias`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -19,7 +20,7 @@ export const fetchConferencias = async (dia: string): Promise<Conferencia[]> => 
 
 
 export const fetchConferenciasPorUsuario = async (idUsuario: number, dia: string | null): Promise<Conferencia[]> => {
-  const response = await fetch("https://congreso-unah-backend.vercel.app/conferencias/usuario", {
+  const response = await fetch(`${BASE_URL}/conferencias/usuario`, {
     method: "POST", // Cambié el método a POST porque coincide con el ejemplo que proporcionaste.
     headers: {
       "Content-Type": "application/json",
@@ -36,7 +37,7 @@ export const fetchConferenciasPorUsuario = async (idUsuario: number, dia: string
 };
 
 export const fetchConferenciasPorUsuarioGeneral = async (idUsuario: number, fecha: string | null): Promise<Conferencia[]> => {
-  const response = await fetch("https://congreso-unah-backend.vercel.app/conferencias/usuario/general", {
+  const response = await fetch(`${BASE_URL}/conferencias/usuario/general`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -57,7 +58,7 @@ export const fetchConferenciasInscritasPorUsuario = async (
   fecha: string | null
 ): Promise<Conferencia[]> => {
   const response = await fetch(
-    "https://congreso-unah-backend.vercel.app/conferencias/usuario/inscritas",
+    `${BASE_URL}/conferencias/usuario/inscritas`,
     {
       method: "POST", // Método POST como en el ejemplo
       headers: {
