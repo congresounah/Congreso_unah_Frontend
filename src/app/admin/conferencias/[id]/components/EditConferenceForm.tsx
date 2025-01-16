@@ -39,7 +39,7 @@ const ConferenciaForm: React.FC<ConferenciaFormProps> = ({ id, isVisualizing = t
     const [, setIsDropdownOpen] = useState(false);
     const dropdownRef = useRef<HTMLDivElement>(null);
 
-    const fechasCongreso = [{ value: "23/01/2025", label: "23 de enero de 2025" }, { value: "24/01/2025", label: "24 de enero de 2025" }, { value: "25/01/2025", label: "25 de enero de 2025" }];
+    const fechasCongreso = [{ value: "23/01/2025", label: "23 de enero de 2025" }, { value: "24/01/2025", label: "24 de enero de 2025" }, { value: "25/01/2025", label: "25 de enero de 2025" },{ value: "26/01/2025", label: "26 de enero de 2025" },{ value: "27/01/2025", label: "27 de enero de 2025" },{ value: "28/01/2025", label: "28 de enero de 2025" }];
 
     useEffect(() => {
         const loadPonentes = async () => {
@@ -551,7 +551,7 @@ const ConferenciaForm: React.FC<ConferenciaFormProps> = ({ id, isVisualizing = t
                     <div className="col-span-2 flex justify-end space-x-3 mt-4">
                         <Button
                             text="Volver"
-                            action={() => { }}
+                            action={() => router.push("/admin/conferencias")}
                             variant="secondary"
                             styleType="fill"
                             className="px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-600"
