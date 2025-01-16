@@ -27,7 +27,7 @@ export const uploadImage = async (file: File) => {
 
 export const crearConferencia = async (data: CrearConferencia) => {
   try {
-    const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/conferencias/insertar`, data, {
+    const response = await axios.post(`https://congreso-unah-backend.vercel.app/conferencias/insertar`, data, {
       headers: {
         "Content-Type": "application/json",
       },
