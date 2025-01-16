@@ -40,7 +40,7 @@ const handleUploadReceiptImage = async (image: File) => {
 export const getUniversities = async () => {
 
     try {
-        const response = await fetch(`https://congreso-unah-backend.vercel.app/usuario/universidades`, {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/usuario/universidades`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -66,8 +66,9 @@ export const getUniversities = async () => {
 };
 
 export const getCareers = async () => {
+
     try {
-        const response = await fetch(`https://congreso-unah-backend.vercel.app/usuario/carreras`, {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/usuario/carreras`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
