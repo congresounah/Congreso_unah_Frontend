@@ -23,7 +23,7 @@ export default function Home({ children }: HomeProps) {
         <NotificationProvider>
             <HomeLayout navOptions={navOptions}>
                 {/* Mostrar la notificación flotante */}
-                <FloatingNotification />
+                <FloatingNotification msg={"Verifica cuidadosamente la exactitud de todos tus datos personales. Estos se usarán para generar certificados oficiales."} />
                 {children}
             </HomeLayout>
         </NotificationProvider>
