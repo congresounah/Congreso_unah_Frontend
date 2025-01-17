@@ -242,7 +242,6 @@ export default function Cronograma({
     { fecha: "23/01/2025", label: "Jueves" },
     { fecha: "24/01/2025", label: "Viernes" },
     { fecha: "27/01/2025", label: "Lunes" },
-    { fecha: "28/01/2025", label: "Martes" },
   ];
 
   const [diaSeleccionado, setDiaSeleccionado] = useState(dias[0].fecha);
