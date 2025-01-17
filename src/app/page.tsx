@@ -230,7 +230,7 @@ export default function Home() {
           />
         </section>
 
-        <section className="w-full my-28 xl:my-0 xl:h-screen flex flex-col lg:flex-row items-center justify-center gap-12 px-8 animate-from-right sm:flex-col-reverse opacity-0 translate-x-[80px]" id="pago">
+        <section className="w-full mb-8 md:my-20 lg:my-2 xl:my-0 xl:h-screen flex flex-col lg:flex-row items-center justify-center gap-12 px-8 animate-from-right sm:flex-col-reverse opacity-0 translate-x-[80px]" id="pago">
           <img
             src="/img/landing/all-devices.webp"
             alt="Cronograma del evento"
@@ -239,21 +239,6 @@ export default function Home() {
           <div className="flex flex-col gap-8 text-center md:text-left text-3xl md:text-6xl leading-none">
             <h2 className="text-center lg:text-left">¿Cómo me inscribo?</h2>
             <div className="text-base montserrat-font text-center lg:text-left">
-              {/*               <ol className="list-decimal list-inside flex flex-col gap-4 list:">
-                <li>Recoge tu orden de pago
-                  Puedes obtenerla los días lunes 20 y martes 21 de enero de 2025 en cualquiera de estos puntos:
-                  <ul className="list-disc list-inside ml-4">
-                    <li>Entrada de la Facultad de Ingeniería.</li>
-                    <li>Decanatura de la Facultad de Ciencias Económicas, con el Secretario Académico.</li>
-                    <li>Recepción Académica del Polideportivo.</li>
-                  </ul>
-                </li>
-                <li>Realiza el pago en Banco LAFISE
-                  Presenta tu orden de pago y cancela los L.300 de inscripción.</li>
-                <li>Guarda tu comprobante
-                  Toma una foto del recibo para subirlo al crear tu cuenta en esta aplicación.</li>
-              </ol> */}
-
               <ol className="flex flex-col gap-4">
                 <li className="flex flex-col md:flex-row md:items-start md:gap-4 gap-2">
                   <p className="w-10 aspect-square flex justify-center items-center border-2 border-[#F8B133] rounded-full font-bold text-[#F8B133] mx-auto md:mx-0">
@@ -307,9 +292,6 @@ export default function Home() {
 
                 <p>Unicamente contamos con 450 cupos disponibles. <span className="font-semibold">¡No te quedes fuera!</span></p>
               </ol>
-
-
-
             </div>
           </div>
         </section>
