@@ -7,27 +7,29 @@ export default function PreHomeLayout({ children }: { children: React.ReactNode 
     return (
         <div className="flex min-h-screen">
             {/* banner izquierdo */}
-            <div className="w-full md:w-2/5 xl:w-3/5 hidden md:grid md:bg-[url('/img/landing/promo.enc')] md:bg-repeat md:bg-center md:bg-black md:brightness-90 xl:bg-[#080816] xl:bg-none z-10 relative">
+            <div className="w-full md:w-2/5 xl:w-3/5 hidden md:grid md:bg-[url('/img/landing/promo2.webp')] md:bg-repeat md:bg-[length:500px_500px] md:bg-top md:bg-black md:brightness-90 xl:bg-[#080816] xl:bg-none z-10 relative">
+
                 <div className="hiddden md:absolute inset-0 bg-black bg-opacity-40 z-10 xl:hidden"></div>
                 <Button
-                    text='Regresar a Inicio'
+                    text="Regresar a Inicio"
                     action={() => window.location.href = '/'}
-                    variant='primary'
-                    styleType='outlined'
-                    type='button'
-                    className='fixed left-4 top-4 z-10 py-1'
+                    variant="primary"
+                    styleType="outlined"
+                    type="button"
+                    className="fixed left-4 top-4 z-10 py-1 md:text-[#000] md:bg-[#F8B133]lg:bg-transparent lg:text-[#F8B133]"
                 >
                     <span className="material-symbols-outlined">
                         arrow_back
-                    </span></Button>
+                    </span>
+                </Button>
 
-{/*                 <button className='absolute left-4 top-4 z-10 bg-white'>Regresar a landing </button>
- */}                <img
-                    src="/img/landing/promo2.jpg"
+                <img
+                    src="/img/landing/promo2.webp"
                     alt="login ilustracion"
                     className="w-[60%] rounded-lg shadow-[8px_8px_15px_rgba(0,0,0,0.5),-4px_-4px_10px_rgba(255,255,255,0.2)] fade-in-up place-self-center hidden xl:block"
                 />
             </div>
+
 
 
             {/* formulario de login */}

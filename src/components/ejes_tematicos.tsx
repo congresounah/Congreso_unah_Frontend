@@ -66,7 +66,7 @@ export default function Carousel() {
         {carouselItems.map((item) => (
           <div
             key={item.id}
-            className="min-w-full flex-shrink-0 flex items-center justify-center relative h-full rounded-sm"
+            className="min-w-full flex-shrink-0 flex items-center justify-center relative h-full md:h-92 lg:h-full rounded-sm"
           >
             {/* Imagen */}
             <div className="relative w-full h-full rounded-sm">

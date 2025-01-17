@@ -9,10 +9,13 @@ import Button from "@/components/Button";
 import { useRouter } from "next/navigation";
 import { showRegister } from "./login/actions";
 import Image from "next/image";
+import FloatingNotification from "@/components/FloatingNotification";
+import { NotificationProvider } from "./contexts/NotificationContext";
 
 export default function Home() {
   const router = useRouter();
   const [showRegisterButton, setShowRegisterButton] = useState(true);
+  const [showNotification, setShowNotification] = useState(false);
 
   useEffect(() => {
     const checkRegister = async () => {
@@ -45,7 +48,13 @@ export default function Home() {
               if (entry.isIntersecting) {
                 entry.target.classList.add(animationClass);
                 observer.unobserve(entry.target);
+
+                if (!showNotification && entry.target.id === "pago") {
+                  console.log("showing notification");
+                  setShowNotification(true);
+                }
               }
+
             });
           },
           { threshold: 0 }
@@ -128,20 +137,24 @@ export default function Home() {
           <div className="absolute inset-0 bg-black bg-opacity-70"></div>
         </div>
 
-        <h1 className="absolute top-1/3 xl:top-1/4 -translate-y-1/2 transform text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight text-white text-shadow-lg opacity-0 translate-y-10 animate-slide-up px-4 ml-8 tracking-widest">
+        <h1 className="absolute top-1/3 xl:top-1/4 -translate-y-1/2 transform text-5xl sm:text-5xl md:text-7xl lg:text-7xl leading-tight text-white text-shadow-lg opacity-0 translate-y-10 animate-slide-up px-4 ml-8 tracking-widest">
           CONGRESO DE <br />
           INNOVACIÓN Y <br />
           TECNOLOGÍA <br />
+          <p className="text-[#f8b133] text-lg md:text-2xl text-shadow-none montserrat-font">
+            DEL 23 AL 28 DE ENERO
+          </p>
           <span className="text-[#f8b133] text-shadow-none montserrat-font typing-effect">
             UNAH 2025
           </span>
+
           {showRegisterButton && (
             <Button
               text="Registrarme ahora"
               action={() => router.push("/register")}
               variant="primary"
               styleType="outlined"
-              className="mt-4 tracking-wide"
+              className="sm:mt-6 md:mt-10 lg:mt-4 tracking-wide"
             >
               <span className="material-symbols-outlined">
                 account_circle
@@ -151,17 +164,21 @@ export default function Home() {
         </h1>
 
       </header>
+
+      <NotificationProvider>
+        {showNotification && <FloatingNotification msg={"Si eres estudiante de la UNAH, se te otorgarán 35 horas VOAE (15 académicas, 15 sociales y 5 culturales) a quienes hayan acumulado al menos el 80% de asistencia."} showBottom={true} />}
+      </NotificationProvider>
       <div className="h-16 w-full bg-gradient-to-b from-[#010101] to-[#101017] overflow-hidden">
       </div>
 
       {/* Contenido principal */}
       <main className="w-4/5 mx-auto">
         {/* seccion de invitacion a descargar cronograma */}
-        <section className="w-full mt-12 xl:mt-0 xl:h-screen flex flex-col lg:flex-row items-center justify-center gap-12 px-8 animate-from-right sm:flex-col-reverse opacity-0 translate-x-[80px]">
+        <section className="w-full mt-12 xl:mt-0 xl:h-screen flex flex-col lg:flex-row items-center justify-center gap-12 px-8 animate-from-right sm:flex-col-reverse opacity-0 translate-x-[80px]" id="cron">
           <img
-            src="/img/landing/promo2.jpg"
+            src="/img/landing/promo2.webp"
             alt="Cronograma del evento"
-            className="rounded-tl-[40px] rounded-br-[40px] w-full md:w-[50%] max-w-[450px] shadow-[8px_8px_15px_rgba(0,0,0,0.5),-4px_-4px_10px_rgba(255,255,255,0.2)]"
+            className="rounded-xl w-full md:w-[50%] max-w-[450px] shadow-[8px_8px_15px_rgba(0,0,0,0.5),-4px_-4px_10px_rgba(255,255,255,0.2)]"
           />
           <div className="flex flex-col gap-8 text-center md:text-left text-3xl md:text-6xl leading-none">
             <h2 className="text-center lg:text-left">Inteligencia, Innovación y
@@ -209,7 +226,7 @@ export default function Home() {
           <img
             src="/img/landing/nuestro-objetivo.webp"
             alt="Cronograma del evento"
-            className="rounded-tl-[40px] rounded-tr-sm rounded-br-[40px] w-full md:w-[50%] max-w-[450px] shadow-[8px_8px_15px_rgba(0,0,0,0.5),-4px_-4px_10px_rgba(255,255,255,0.2)]"
+            className="rounded-xl w-full md:w-[50%] max-w-[450px] shadow-[8px_8px_15px_rgba(0,0,0,0.5),-4px_-4px_10px_rgba(255,255,255,0.2)]"
           />
         </section>
 
@@ -217,7 +234,7 @@ export default function Home() {
           <img
             src="/img/landing/all-devices.webp"
             alt="Cronograma del evento"
-            className="rounded-tl-[40px] rounded-br-[40px] w-full md:w-[50%] max-w-[450px] shadow-[8px_8px_15px_rgba(0,0,0,0.5),-4px_-4px_10px_rgba(255,255,255,0.2)]"
+            className="rounded-xl w-full md:w-[50%] max-w-[450px] shadow-[8px_8px_15px_rgba(0,0,0,0.5),-4px_-4px_10px_rgba(255,255,255,0.2)]"
           />
           <div className="flex flex-col gap-8 text-center md:text-left text-3xl md:text-6xl leading-none">
             <h2 className="text-center lg:text-left">¿Cómo me inscribo?</h2>
@@ -243,12 +260,12 @@ export default function Home() {
                     1
                   </p>
                   <div className="text-center md:text-left md:flex-1">
-                    <h3 className="font-semibold">Recoge tu orden</h3>
+                    <h3 className="font-semibold">Recoge tu orden de pago</h3>
                     <p>
                       Disponible solo <strong>20 y 21 de enero</strong> en:
                     </p>
                     <ul className="list-disc list-inside mt-2">
-                      <li>Facultad de Ingeniería.</li>
+                      <li>Entrada de la Facultad de Ingeniería.</li>
                       <li>Decanatura de Ciencias Económicas.</li>
                       <li>Recepción Académica del Polideportivo.</li>
                     </ul>
@@ -272,7 +289,7 @@ export default function Home() {
                   <div className="text-center md:text-left md:flex-1">
                     <h3 className="font-semibold">Guarda el comprobante</h3>
                     <p>
-                      Fotografía tu recibo para subirlo en la app.
+                      Fotografía tu recibo para subirlo al hacer tu registro.
                     </p>
                   </div>
                 </li>
@@ -283,7 +300,7 @@ export default function Home() {
                   <div className="text-center md:text-left md:flex-1">
                     <h3 className="font-semibold">Completa tu registro</h3>
                     <p>
-                      Sube tu comprobante y registra tus datos.
+                      Registra tus datos y sube tu comprobante de pago en esta aplicación.
                     </p>
                   </div>
                 </li>
@@ -296,6 +313,9 @@ export default function Home() {
             </div>
           </div>
         </section>
+        <div>
+        </div>
+
 
         <div className="w-full min-h-screen flex flex-col bg-[101017]">
           <div className="bg-[101017] flex-grow w-full mt-10">
@@ -332,7 +352,7 @@ export default function Home() {
             <li>
             </li>
             <li>
-              <strong>Email:</strong> congresodeinnovacionunah@gmail.com
+              <strong>Correo:</strong> congresodeinnovacionunah@gmail.com
             </li>
             <li>
               <strong>Dirección:</strong> Ciudad Universitaria, Tegucigalpa, Honduras

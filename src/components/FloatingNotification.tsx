@@ -2,14 +2,14 @@ import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNotification } from '@/app/contexts/NotificationContext';
 
-export default function FloatingNotification() {
+export default function FloatingNotification({msg, showBottom = false} : {msg: string, showBottom?: boolean}) {
     const { isNotificationVisible, hideNotification } = useNotification();
 
     return (
         <AnimatePresence>
             {isNotificationVisible && (
                 <motion.div
-    className="fixed top-4 right-4 montserrat-font text-white p-4 rounded-lg shadow-2xl w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:w-96 z-50"
+    className={`fixed ${showBottom ? 'bottom-4' : 'top-4'} right-4 montserrat-font text-white p-4 rounded-lg shadow-2xl w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:w-96 z-50`}
     style={{
         backgroundImage: 'url(/img/bg/sol.webp)',
         backgroundSize: 'cover',
@@ -34,9 +34,10 @@ export default function FloatingNotification() {
 >
                     <div className="flex items-center justify-between w-full p-4 rounded-lg">
                         <div className="flex items-center gap-3">
-                            <span className="text-lg leading-6 xl:leading-5"> 
+{/*                             <span className="text-lg leading-6 xl:leading-5"> 
                             Verifica cuidadosamente la exactitud de <span className='font-extrabold'>todos tus datos personales</span>. Estos se usarán para generar certificados oficiales. 
-                            </span>
+                            </span> */}
+                            {msg}
                         </div>
                         <button
                             onClick={hideNotification}
