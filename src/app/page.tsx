@@ -137,7 +137,7 @@ export default function Home() {
           <div className="absolute inset-0 bg-black bg-opacity-70"></div>
         </div>
 
-        <h1 className="absolute top-1/3 xl:top-1/4 -translate-y-1/2 transform text-5xl sm:text-5xl md:text-7xl lg:text-7xl leading-tight text-white text-shadow-lg opacity-0 translate-y-10 animate-slide-up px-4 ml-8 tracking-widest">
+        <h1 className="absolute top-1/3 xl:top-1/4 -translate-y-1/2 transform text-4xl md:text-7xl lg:text-7xl leading-tight text-white text-shadow-lg opacity-0 translate-y-10 animate-slide-up px-4 ml-5 md:ml-8 tracking-widest">
           CONGRESO DE <br />
           INNOVACIÓN Y <br />
           TECNOLOGÍA <br />
