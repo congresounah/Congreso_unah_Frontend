@@ -53,9 +53,9 @@ export default function PonentesComponente() {
             <Image
               src={ponente.img_perfil}
               alt={ponente.nombres}
-              width={592}
+              width={468}
               height={592}
-              className="w-full h-64 object-cover group-hover:opacity-20 transition-opacity duration-300"
+              className="w-full h-80 object-cover group-hover:opacity-20 transition-opacity duration-300"
             />
             {/* Nombre con fondo semitransparente */}
             <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent text-white text-center p-4">
