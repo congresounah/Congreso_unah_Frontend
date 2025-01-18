@@ -108,7 +108,7 @@ export const obtenerConferencias = async (dia: string|null): Promise<Conferencia
     }
   }
 
-
+  
   export const eliminarConferencia = async (id: number): Promise<{ message: string }> => {
     try {
       const response = await axios.delete(`${process.env.NEXT_PUBLIC_API_URL}/conferencias/eliminar/${id}`);
