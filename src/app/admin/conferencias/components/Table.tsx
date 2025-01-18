@@ -18,6 +18,8 @@ const TableComponent = () => {
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [deleteShowModal, setDeleteShowModal] = useState<boolean>(false);
+  const [nombreConfDelete, setnombreConfDelete] = useState<string>("")
+  const [idConfDelete, setIdConfDelete] = useState<number>(0)
 
   const fetchConferencias = async () => {
     try {
@@ -79,8 +81,13 @@ const TableComponent = () => {
     }
   };
 
-  const handleModal = async () =>{
-    setDeleteShowModal(true)
+  const handleModal = async (nombre:string, id:number) =>{
+    setnombreConfDelete(nombre)
+    setIdConfDelete(id)
+    if(nombreConfDelete != "" && idConfDelete != 0){
+      setDeleteShowModal(true)
+    }
+    
   }
 
 
@@ -159,17 +166,6 @@ const TableComponent = () => {
                 <td className="px-4 py-2 border-b">{conferencia.cupos_disponibles}</td>
                 <td className="px-4 py-2 border-b text-center">
                   <div className="flex flex-col lg:flex-row items-center justify-center gap-1">
-                    {deleteShowModal && (
-                      <Modal
-                        message="¿Deseas eliminar esta conferencia?"
-                        subMessage={conferencia.titulo}
-                        onClose={() => setDeleteShowModal(false)}
-                        onSuccess={() => {
-                          setDeleteShowModal(false);
-                          handleDelete(conferencia.id_conferencia)
-                        }}
-                      />
-                    )}
                     <button
                       onClick={() => handleView(conferencia.id_conferencia)}
                       className={`bg-blue-500 text-white px-2 py-1 rounded shadow hover:bg-blue-600 text-sm font-300 flex items-center gap-1 w-full`}
@@ -185,11 +181,11 @@ const TableComponent = () => {
                       Editar
                     </button>
                     <button
-                      onClick={() => handleModal()}
+                      onClick={() => handleModal(conferencia.titulo, conferencia.id_conferencia)}
                       className={`bg-red-400 text-white px-2 py-1 rounded shadow hover:bg-blue-600 text-sm font-300 flex items-center gap-1 w-full`}
                     >
                       <FaFolderMinus size={20} />
-                      Ocultar
+                      Eliminar
                     </button>
                   </div>
                 </td>
@@ -198,6 +194,18 @@ const TableComponent = () => {
           </tbody>
         </table>
       </div>
+
+      {deleteShowModal && (
+                      <Modal
+                        message="¿Deseas eliminar esta conferencia?"
+                        subMessage={nombreConfDelete}
+                        onClose={() => setDeleteShowModal(false)}
+                        onSuccess={() => {
+                          setDeleteShowModal(false);
+                          handleDelete(idConfDelete)
+                        }}
+                      />
+      )}
 
 
     </div>
