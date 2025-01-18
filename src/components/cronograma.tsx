@@ -240,9 +240,11 @@ export default function Cronograma({
 
   const dias = [
     { fecha: "17/01/2025", label: "Viernes 17" },
+    { fecha: "18/01/2025", label: "Lunes 18" },
     { fecha: "23/01/2025", label: "Jueves 23" },
     { fecha: "24/01/2025", label: "Viernes 24" },
     { fecha: "27/01/2025", label: "Lunes 27" },
+    
     
   ];
 
