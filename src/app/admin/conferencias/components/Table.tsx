@@ -185,7 +185,7 @@ const TableComponent = () => {
                       className={`bg-red-400 text-white px-2 py-1 rounded shadow hover:bg-blue-600 text-sm font-300 flex items-center gap-1 w-full`}
                     >
                       <FaFolderMinus size={20} />
-                      Ocultar
+                      Eliminar
                     </button>
                   </div>
                 </td>
