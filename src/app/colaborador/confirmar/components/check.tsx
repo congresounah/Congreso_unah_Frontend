@@ -129,7 +129,7 @@ const CheckComponent = () => {
   };
 
   const navigateToMainPage = () => {
-    window.location.href = `${process.env.NEXT_PUBLIC_API_URL}/colaborador/escaner`;
+    window.location.href = `https://congresoinnovacionunah2025.com/colaborador/escaner`;
   };
 
   return (
