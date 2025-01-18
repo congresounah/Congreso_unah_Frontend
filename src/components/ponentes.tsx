@@ -53,7 +53,7 @@ export default function PonentesComponente() {
             <Image
               src={ponente.img_perfil}
               alt={ponente.nombres}
-              width={468}
+              width={592}
               height={592}
               className="w-full h-64 object-cover group-hover:opacity-20 transition-opacity duration-300"
             />
