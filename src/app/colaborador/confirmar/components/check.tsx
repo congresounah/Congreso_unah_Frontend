@@ -60,12 +60,11 @@ const CheckComponent = () => {
       ...(type === 'entrada' ? { horaEntrada: timestamp } : { horaSalida: timestamp }),
     };
   
-  
     try {
       const url =
         type === 'entrada'
-          ? `${process.env.NEXT_PUBLIC_API_URL}/usuario/asistencia/hora/entrada`
-          : `${process.env.NEXT_PUBLIC_API_URL}/usuario/asistencia/hora/salida`;
+          ? `https://congreso-unah-backend.vercel.app/usuario/asistencia/hora/entrada`
+          : `https://congreso-unah-backend.vercel.app/usuario/asistencia/hora/salida`;
   
       const method = type === 'entrada' ? 'POST' : 'PUT';
   
@@ -133,7 +132,7 @@ const CheckComponent = () => {
   };
 
   const navigateToMainPage = () => {
-    window.location.href = `${process.env.NEXT_PUBLIC_API_URL}/colaborador/escaner`;
+    window.location.href = `https://congresoinnovacionunah2025.com/colaborador/escaner`;
   };
 
   return (
