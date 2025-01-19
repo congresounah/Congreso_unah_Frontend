@@ -328,38 +328,38 @@ export default function Home() {
         </div>
       </main>
       <footer className="relative py-4 bg-[#033871] mt-36 h-48 text-white overflow-hidden montserrat-font text-sm md:text-base border-t-2 border-[#F8B133]">
-  {/* Contenido del footer */}
-  <div className="flex flex-col items-start justify-center ml-12 h-full ">
-    <ul className="list-none">
-      <li></li>
-      <li>
-        <strong className="font-semibold">Correo:</strong> congresodeinnovacionunah@gmail.com
-      </li>
-      <li>
-        <strong className="font-bold">Dirección:</strong> Ciudad Universitaria, Tegucigalpa, Honduras
-      </li>
-    </ul>
-    <p className="font-bold">UNAH 2025</p>
-  </div>
+        {/* Contenido del footer */}
+        <div className="flex flex-col items-start justify-center ml-3 md:ml-12 h-full ">
+          <ul className="list-none">
+            <li></li>
+            <li>
+              <strong className="font-semibold">Correo:</strong> congresodeinnovacionunah@gmail.com
+            </li>
+            <li>
+              <strong className="font-bold">Dirección:</strong> Ciudad Universitaria, Tegucigalpa, Honduras
+            </li>
+          </ul>
+          <p className="font-bold">UNAH 2025</p>
+        </div>
 
-  {/* Contenedor de imágenes en la esquina inferior derecha */}
-  <div className="absolute bottom-4 right-4 flex space-x-2 my-auto font-montserrat h-[30%] md:h-[50%] lg:h-[70%]">
-    <Image
-      src="/img/landing/logo_ing.webp"
-      alt="Instagram Logo"
-      width={500}
-      height={500}
-      className="w-auto h-auto max-h-full object-contain"
-    />
-    <Image
-      src="/img/landing/logo-unah-blanco.webp"
-      alt="Logo UNAH"
-      width={500}
-      height={500}
-      className="w-auto h-auto max-h-full object-contain"
-    />
-  </div>
-</footer>
+        {/* Contenedor de imágenes en la esquina inferior derecha */}
+        <div className="absolute bottom-4 right-4 flex space-x-2 my-auto font-montserrat h-[30%] md:h-[50%] lg:h-[70%]">
+          <Image
+            src="/img/landing/logo_ing.webp"
+            alt="Instagram Logo"
+            width={500}
+            height={500}
+            className="w-auto h-auto max-h-full object-contain"
+          />
+          <Image
+            src="/img/landing/logo-unah-blanco.webp"
+            alt="Logo UNAH"
+            width={500}
+            height={500}
+            className="w-auto h-auto max-h-full object-contain"
+          />
+        </div>
+      </footer>
 
 
 
