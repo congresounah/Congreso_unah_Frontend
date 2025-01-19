@@ -21,7 +21,6 @@ const UserProfile: React.FC = ({ id }: { id?: string }) => {
   const [showQR, setShowQR] = useState(false);
 
   useEffect(() => {
-    console.log("Datos actualizados, refrescando...");
     router.refresh(); // Se ejecuta solo cuando alguna dependencia cambia.
   }, [router]);
 
@@ -36,6 +35,7 @@ const UserProfile: React.FC = ({ id }: { id?: string }) => {
           if (payload.tipo_usuario === "comun") {
             setShowQR(true);
           }
+          console.log(payload.id_usuario)
           return payload.id_usuario;
         } catch (error) {
           console.error("Error al decodificar el token:", error);

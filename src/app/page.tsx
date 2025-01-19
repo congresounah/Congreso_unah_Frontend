@@ -50,7 +50,6 @@ export default function Home() {
                 observer.unobserve(entry.target);
 
                 if (!showNotification && entry.target.id === "pago") {
-                  console.log("showing notification");
                   setShowNotification(true);
                 }
               }
@@ -247,12 +246,14 @@ export default function Home() {
                   <div className="text-center md:text-left md:flex-1">
                     <h3 className="font-semibold">Recoge tu orden de pago</h3>
                     <p>
-                      Disponible solo <strong>20 y 21 de enero</strong> en:
+                      Disponible solo en:
                     </p>
-                    <ul className="list-disc list-inside mt-2">
+                    <ul className="list-disc list-inside mt-1">
                       <li>Entrada de la Facultad de Ingeniería.</li>
                       <li>Decanatura de Ciencias Económicas.</li>
                       <li>Recepción Académica del Polideportivo.</li>
+                      <li>Edificio D1 - Biblioteca de Ing. Civil</li>
+
                     </ul>
                   </div>
                 </li>
@@ -326,33 +327,40 @@ export default function Home() {
           </div>
         </div>
       </main>
-      <footer className="relative py-4 bg-[#f8b133] mt-36 h-48 text-gray-800 overflow-hidden">
-        {/* Contenido del footer */}
-        <div className="flex flex-col items-start justify-center ml-12 h-full text-xl">
-          <p>UNAH 2025</p>
-          <ul className="list-none">
-            <li>
-            </li>
-            <li>
-              <strong>Correo:</strong> congresodeinnovacionunah@gmail.com
-            </li>
-            <li>
-              <strong>Dirección:</strong> Ciudad Universitaria, Tegucigalpa, Honduras
-            </li>
-          </ul>
-        </div>
+      <footer className="relative py-4 bg-[#033871] mt-36 h-48 text-white overflow-hidden montserrat-font text-sm md:text-base border-t-2 border-[#F8B133]">
+  {/* Contenido del footer */}
+  <div className="flex flex-col items-start justify-center ml-12 h-full ">
+    <ul className="list-none">
+      <li></li>
+      <li>
+        <strong className="font-semibold">Correo:</strong> congresodeinnovacionunah@gmail.com
+      </li>
+      <li>
+        <strong className="font-bold">Dirección:</strong> Ciudad Universitaria, Tegucigalpa, Honduras
+      </li>
+    </ul>
+    <p className="font-bold">UNAH 2025</p>
+  </div>
 
-        {/* Imagen pegada al lado derecho abajo */}
-        <div className="absolute bottom-0 right-0 hidden md:block">
-          <Image
-            src="/img/bg/sol-docto-fondo.jpg"
-            alt="Imagen decorativa"
-            width={150}
-            height={150}
-            className="w-auto h-auto  max-h-full object-contain"
-          />
-        </div>
-      </footer>
+  {/* Contenedor de imágenes en la esquina inferior derecha */}
+  <div className="absolute bottom-4 right-4 flex space-x-2 my-auto font-montserrat h-[30%] md:h-[50%] lg:h-[70%]">
+    <Image
+      src="/img/landing/logo_ing.webp"
+      alt="Instagram Logo"
+      width={500}
+      height={500}
+      className="w-auto h-auto max-h-full object-contain"
+    />
+    <Image
+      src="/img/landing/logo-unah-blanco.webp"
+      alt="Logo UNAH"
+      width={500}
+      height={500}
+      className="w-auto h-auto max-h-full object-contain"
+    />
+  </div>
+</footer>
+
 
 
     </div>

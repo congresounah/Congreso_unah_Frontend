@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
+import { toast } from 'react-toastify';
 
 const CheckComponent = () => {
   const [conferences, setConferences] = useState<{ id_conferencia: number; nombre: string }[]>([]);
@@ -106,17 +107,20 @@ const CheckComponent = () => {
   
       if (data.result?.codigo === 1) {
         setModalMessage(data.result.mensaje);
+        toast.success("Asistencia marcada exitosamente")
         setShowBackButton(true);
       } else {
         const errorMessage =
           errorMessages[type]?.[data.result?.codigo as 2 | 3 | 4 | 5 | 6] ||
           'Error inesperado. Intenta nuevamente.';
+        toast.error(errorMessage)
         setModalMessage(errorMessage);
         setShowBackButton(false);
       }
     } catch (error) {
       console.error(`Error registrando hora ${type}:`, error);
       setModalMessage('Error de conexión con el servidor.');
+      toast.error('Ocurrió un error en el servidor');
       setShowBackButton(false);
     }
   

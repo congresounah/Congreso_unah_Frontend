@@ -59,7 +59,6 @@ export default function MyInscriptions() {
         return;
       }
       await downloadCertificateById(idUsuario);
-      console.log("Descarga completada exitosamente.");
     } catch (error) {
       console.error("Error al intentar descargar recursos:", error);
     }

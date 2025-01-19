@@ -171,11 +171,11 @@ const UserInfoCard: React.FC<UserInfoCardProps> = ({ id }) => {
   }
 
   return (
-    <div className="bg-indigo-700 text-white rounded-lg p-6 shadow-md max-w-md w-full sm:max-w-lg">
+    <div className="bg-indigo-700 text-white rounded-lg montserrat-font p-6 shadow-md max-w-md w-full sm:max-w-lg">
       <h2 className="text-lg font-bold mb-4 text-center">Información Usuario</h2>
       <div className="bg-indigo-800 rounded-lg p-4">
         <p className="text-lg font-semibold text-center">
-          Hola {data.nombre_usuario}!!
+          ¡Hola {data.nombre_usuario}!
         </p>
         <p className="text-sm mt-2">
           {data.cantidad_inscritas_actualmente === 0 ? (

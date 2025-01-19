@@ -151,7 +151,6 @@ export const downloadCertificateById = async (id_usuario: number): Promise<void>
     link.click();
     document.body.removeChild(link);
 
-    console.log('Certificado descargado exitosamente.');
   } catch (error) {
     console.error("Error al descargar el certificado:", error);
   }
