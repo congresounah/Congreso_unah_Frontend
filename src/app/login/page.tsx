@@ -111,6 +111,7 @@ function Login() {
 
             // Guardar el token
             if (response.token) {
+                Cookies.remove('authToken');
                 Cookies.set('authToken', response.token, {
                     expires: 1,
                     secure: process.env.NODE_ENV === 'production',
