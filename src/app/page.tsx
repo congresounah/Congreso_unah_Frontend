@@ -1,7 +1,7 @@
 "use client"; // Necesario para que el código se ejecute en el cliente
 
 import { useEffect, useState } from "react";
-import Cronograma from "@/components/cronograma";
+// import Cronograma from "@/components/cronograma";
 import Carousel from "@/components/ejes_tematicos";
 import Navbar from "@/components/Navbar";
 import Ponentes from "@/components/ponentes";
@@ -141,7 +141,7 @@ export default function Home() {
           INNOVACIÓN Y <br />
           TECNOLOGÍA <br />
           <p className="text-[#f8b133] text-lg md:text-2xl text-shadow-none montserrat-font">
-            DEL 23 AL 28 DE ENERO
+            Reprogramada para Marzo
           </p>
           <span className="text-[#f8b133] text-shadow-none montserrat-font typing-effect">
             UNAH 2025
@@ -175,7 +175,7 @@ export default function Home() {
         {/* seccion de invitacion a descargar cronograma */}
         <section className="w-full mt-12 xl:mt-0 xl:h-screen flex flex-col lg:flex-row items-center justify-center gap-12 px-8 animate-from-right sm:flex-col-reverse opacity-0 translate-x-[80px]" id="cron">
           <img
-            src="/img/landing/promo2.webp"
+            src="/img/landing/innovacion.webp"
             alt="Cronograma del evento"
             className="rounded-xl w-full md:w-[50%] max-w-[450px] shadow-[8px_8px_15px_rgba(0,0,0,0.5),-4px_-4px_10px_rgba(255,255,255,0.2)]"
           />
@@ -309,14 +309,22 @@ export default function Home() {
                 </div>
               </section>
               <section id="conferencias" className="intersection-animate">
-                <Cronograma
+                {/* <Cronograma
                   customStyles={{
                     button: "hidden",
-                  }}
+                  }}                 
                 >
 
-                </Cronograma>
+                </Cronograma> */}
+              <h2 className={`sm:text-6xl text-5xl mb-10 flex justify-center mt-20`}>
+              Conferencias
+              </h2>
+              <h2 className={`sm:text-4xl text-3xl mb-10 flex justify-center whitespace-nowrap`}>
+              Proximamente en Marzo
+              </h2>
               </section>
+
+
               <section id="ponentes" className="intersection-animate pt-16">
                 <div className="flex justify-center">
                   <Ponentes></Ponentes>
