@@ -65,7 +65,8 @@ export default function Conferences() {
         customStyles={{
           container: "border-[#101017] shadow-md shadow-slate-700",
           header: "bg-[#101017] text-slate-100",
-          button: "border-slate-800 text-slate-800",
+          // button: "border-slate-800 text-slate-800",
+          button: "hidden",
           imageContainer: "border-blue-400 border-b-transparent",
           ponente: "border-b-blue-200 border-x-blue-200 border-t-transparent",
           content:"border-transparent",
