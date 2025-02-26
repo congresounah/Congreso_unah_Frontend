@@ -55,6 +55,10 @@ const TableComponent = () => {
     setFilteredData(sortedData);
   };
 
+  const descargarListados = () => {
+    window.open("https://congreso-unah-backend.vercel.app/admin/accepted/users", "_blank");
+  };
+
   const handleSearch = (term: string) => {
     setSearchTerm(term);
     const filtered = usuarios.filter(
@@ -119,11 +123,18 @@ const TableComponent = () => {
         </div>
         <div className="relative">
           <button
+              onClick={descargarListados}
+              className="mr-4 bg-gray-200 px-4 py-2 rounded-lg shadow hover:bg-green-300"
+            >
+            Descargar listados
+          </button>
+          <button
             onClick={toggleSortOrder}
             className="bg-gray-200 px-4 py-2 rounded-lg shadow hover:bg-gray-300"
           >
             Ordenar por: {sortOrder}
           </button>
+
         </div>
       </div>
 
