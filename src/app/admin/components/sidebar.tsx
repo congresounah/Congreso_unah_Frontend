@@ -80,6 +80,14 @@ const Sidebar: React.FC = () => {
             <FaLock />
             <span>Conferencias</span>
           </button>
+        </div>
+
+        {/* Footer */}
+        <div className="p-6">
+          <button className="flex items-center gap-4 py-2 px-4 rounded-md text-gray-600 hover:bg-gray-100">
+            <FaSignOutAlt />
+            <span>Cerrar Sesión</span>
+          </button>
           <button
             className="flex items-center gap-4 py-2 px-4 rounded-md text-gray-600 hover:bg-gray-100 disabled:opacity-50"
             onClick={handleDownload}
@@ -89,14 +97,6 @@ const Sidebar: React.FC = () => {
               <FaDownload />
               <span>Descargar QR de los participantes Inscritos</span>
             </>}
-          </button>
-        </div>
-
-        {/* Footer */}
-        <div className="p-6">
-          <button className="flex items-center gap-4 py-2 px-4 rounded-md text-gray-600 hover:bg-gray-100">
-            <FaSignOutAlt />
-            <span>Cerrar Sesión</span>
           </button>
         </div>
       </div>
