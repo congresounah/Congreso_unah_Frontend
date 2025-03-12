@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect} from "react";
-import { FaEdit, FaSearch, FaEye, FaPaperPlane } from "react-icons/fa";
+import { FaEdit, FaSearch, FaEye, FaPaperPlane, FaDownload } from "react-icons/fa";
 import { obtenerUsuarios } from "@/services/participantes/participantes";
 import { Participantes } from "@/interfaces/participantes";
 import { useRouter } from "next/navigation";
@@ -26,6 +26,30 @@ const TableComponent = () => {
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
+  const [loadingg, setLoadingg] = useState(false);
+
+  const handleDownload = async () => {
+    setLoadingg(true);
+    try {
+      const response = await fetch("https://congreso-unah-backend.vercel.app/admin/accepted/users/license");
+
+      if (!response.ok) throw new Error("Error al descargar");
+
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "QR_Participantes.pdf"; // Ajusta según el formato del archivo
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      window.URL.revokeObjectURL(url);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoadingg(false);
+    }
+  };
 
   useEffect(() => {
     const fetchUsuarios = async () => {
@@ -134,7 +158,15 @@ const TableComponent = () => {
           >
             Ordenar por: {sortOrder}
           </button>
-
+          <button
+            className="flex items-center gap-4 py-2 px-4 rounded-md text-gray-600 hover:bg-gray-100 disabled:opacity-50"
+            onClick={handleDownload}
+              disabled={loadingg}>
+                {loadingg ? "Descargando..." : <>
+                  <FaDownload />
+                  <span>Descargar QR de los participantes Inscritos</span>
+                </>}
+              </button>
         </div>
       </div>
 
