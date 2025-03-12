@@ -160,7 +160,7 @@ const TableComponent = () => {
           </button>
           <button
             onClick={handleDownload}
-            className="bg-gray-200 px-4 py-2 rounded-lg shadow hover:bg-gray-300"
+            className="bg-gray-200 px-4 py-2 rounded-lg ml-5 shadow hover:bg-gray-300"
               disabled={loadingg}>
                 {loadingg ? "Descargando..." : <>
                   <span>Descargar QR de los participantes Inscritos</span>

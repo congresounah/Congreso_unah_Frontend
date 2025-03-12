@@ -89,7 +89,7 @@ const Sidebar: React.FC = () => {
             <span>Cerrar Sesión</span>
           </button>
           <button
-            className="flex items-center gap-4 py-2 px-4 ml-5 rounded-md text-gray-600 hover:bg-gray-100 disabled:opacity-50"
+            className="flex items-center gap-4 py-2 px-4  rounded-md text-gray-600 hover:bg-gray-100 disabled:opacity-50"
             onClick={handleDownload}
             disabled={loading}
           >
