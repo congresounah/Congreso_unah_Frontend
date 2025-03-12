@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect} from "react";
-import { FaEdit, FaSearch, FaEye, FaPaperPlane, FaDownload } from "react-icons/fa";
+import { FaEdit, FaSearch, FaEye, FaPaperPlane} from "react-icons/fa";
 import { obtenerUsuarios } from "@/services/participantes/participantes";
 import { Participantes } from "@/interfaces/participantes";
 import { useRouter } from "next/navigation";
@@ -159,11 +159,10 @@ const TableComponent = () => {
             Ordenar por: {sortOrder}
           </button>
           <button
-            className="flex items-center gap-4 py-2 px-4 rounded-md text-gray-600 hover:bg-gray-100 disabled:opacity-50"
             onClick={handleDownload}
+            className="bg-gray-200 px-4 py-2 rounded-lg shadow hover:bg-gray-300"
               disabled={loadingg}>
                 {loadingg ? "Descargando..." : <>
-                  <FaDownload />
                   <span>Descargar QR de los participantes Inscritos</span>
                 </>}
               </button>
