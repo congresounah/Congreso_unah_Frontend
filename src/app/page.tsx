@@ -141,7 +141,7 @@ export default function Home() {
           INNOVACIÓN Y <br />
           TECNOLOGÍA <br />
           <p className="text-[#f8b133] text-lg md:text-2xl text-shadow-none montserrat-font">
-            Reprogramada para Marzo
+            20 y 21 de Marzo
           </p>
           <span className="text-[#f8b133] text-shadow-none montserrat-font typing-effect">
             UNAH 2025
