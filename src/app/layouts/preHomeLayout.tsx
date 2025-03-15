@@ -7,7 +7,7 @@ export default function PreHomeLayout({ children }: { children: React.ReactNode 
     return (
         <div className="flex min-h-screen">
             {/* banner izquierdo */}
-            <div className="w-full md:w-2/5 xl:w-3/5 hidden md:grid md:bg-[url('/img/landing/promo2.webp')] md:bg-repeat md:bg-[length:500px_500px] md:bg-top md:bg-black md:brightness-90 xl:bg-[#080816] xl:bg-none z-10 relative">
+            <div className="w-full md:w-2/5 xl:w-3/5 hidden md:grid md:bg-[url('/img/landing/anuncio.webp')] md:bg-repeat md:bg-[length:500px_500px] md:bg-top md:bg-black md:brightness-90 xl:bg-[#080816] xl:bg-none z-10 relative">
 
                 <div className="hiddden md:absolute inset-0 bg-black bg-opacity-40 z-10 xl:hidden"></div>
                 <Button
@@ -24,7 +24,7 @@ export default function PreHomeLayout({ children }: { children: React.ReactNode 
                 </Button>
 
                 <img
-                    src="/img/landing/promo2.webp"
+                    src="/img/landing/anuncio.webp"
                     alt="login ilustracion"
                     className="w-[60%] rounded-lg shadow-[8px_8px_15px_rgba(0,0,0,0.5),-4px_-4px_10px_rgba(255,255,255,0.2)] fade-in-up place-self-center hidden xl:block"
                 />
