@@ -186,7 +186,10 @@ export default function Home() {
               <a href="/pdf/cronograma.pdf" download="Cronograma_CIT">
                 <Button
                   text="Descargar cronograma"
-                  action={() => (console.info("e"))}
+                  action={() => {
+                    const fileUrl = "/pdf/congreso.xlsx"; // Ruta dentro de public
+                    window.location.href = fileUrl;
+                  }}
                   variant="primary"
                   styleType="outlined"
                   className="w-full md:w-max mx-auto mx-auto lg:mx-0 mt-4 tracking-wide"
@@ -195,6 +198,7 @@ export default function Home() {
                     download
                   </span>
                 </Button>
+
               </a>
             )}
           </div>
