@@ -183,13 +183,10 @@ export default function Home() {
             <h2 className="text-center lg:text-left">Inteligencia, Innovación y
               Sostenibilidad en Acción</h2>
             {showRegisterButton && (
-              <a href="/pdf/cronograma.pdf" download="Cronograma_CIT">
+              <a href="/pdf/congreso.xlsx" download="Cronograma_CIT">
                 <Button
                   text="Descargar cronograma"
-                  action={() => {
-                    const fileUrl = "/pdf/congreso.xlsx"; // Ruta dentro de public
-                    window.location.href = fileUrl;
-                  }}
+                  action={() => (console.info("e"))}
                   variant="primary"
                   styleType="outlined"
                   className="w-full md:w-max mx-auto mx-auto lg:mx-0 mt-4 tracking-wide"
