@@ -98,7 +98,7 @@ const ConferenciaComponent = ({
           className={`p-5 lg:w-1/4 flex flex-col items-center justify-center ${customStyles?.imageContainer || ""}`}
         >
           <div
-            className={`relative w-full lg:h-[80%] h-28 border ${customStyles?.image || "border-slate-200"}`}
+            className={`relative w-full lg:h-[80%] h-56 border ${customStyles?.image || "border-slate-200"}`}
           >
             <Image
               src={conferencia.img_ponente}
