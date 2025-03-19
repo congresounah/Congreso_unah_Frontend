@@ -45,19 +45,25 @@ const CheckComponent = () => {
       return;
     }
   
-    const currentDate = new Date();
-    const formattedDate = currentDate.toISOString().split('T')[0];
-    const currentTime = currentDate.toTimeString().split(' ')[0];
+    const hondurasTime = new Date().toLocaleString('en-US', { timeZone: 'America/Tegucigalpa' });
+
+    const currentDate = new Date(hondurasTime);
+    const formattedDate = `${currentDate.getFullYear()}-${String(currentDate.getMonth() + 1).padStart(2, '0')}-${String(currentDate.getDate()).padStart(2, '0')}`;
+    const currentTime = `${String(currentDate.getHours()).padStart(2, '0')}:${String(currentDate.getMinutes()).padStart(2, '0')}:${String(currentDate.getSeconds()).padStart(2, '0')}`;
     const timestamp = `${formattedDate} ${currentTime}`;
+    
+    console.log(timestamp);
+    
   
     const url = window.location.href; // Obtiene la URL completa
     const idUsuario = url.split('/').pop(); // Extrae el último segmento de la URL
-
+    console.log(timestamp)
     const requestData = {
       idUsuario,
       idConferencia: selectedConference.toString(),
       ...(type === 'entrada' ? { horaEntrada: timestamp } : { horaSalida: timestamp }),
     };
+    console.log(requestData)
   
     try {
       const url =
