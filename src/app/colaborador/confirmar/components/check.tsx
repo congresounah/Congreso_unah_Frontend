@@ -11,9 +11,8 @@ const CheckComponent = () => {
 
   useEffect(() => {
     const fetchConferences = async () => {
-      const today = new Date().toISOString().split('T')[0];
+      const today = new Date().toLocaleDateString('en-CA', { timeZone: 'America/Tegucigalpa' });
       const requestData = { fecha: today };
-
 
       try {
         const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/conferencias/fecha`, {
