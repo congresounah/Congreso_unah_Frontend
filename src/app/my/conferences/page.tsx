@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 'use client'
 
 "use client"
@@ -59,7 +60,7 @@ export default function Conferences() {
       <h2 className="md:w-4/6 w-11/12 mx-auto text-3xl lg:mt-10 mt-2">
         Conferencias
       </h2>
-      <Cronograma
+      {/* <Cronograma
         fetchPrompt="general"
         idUsuario={idUsuario}
         customStyles={{
@@ -81,7 +82,10 @@ export default function Conferences() {
         onInscribirse={handleInscripcion}
         
         
-      />
+      /> */}
+            <h2 className="md:w-4/6 w-11/12 mx-auto text-3xl lg:mt-10 mt-2">
+        Proximamente...
+      </h2>
     </div>
   );
 }
