@@ -41,7 +41,7 @@ const ConferenciaForm: React.FC = () => {
   const [, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  const fechasCongreso = [{ value: "20/03/2025", label: "20 de enero de 2025" },{ value: "21/03/2025", label: "21 de enero de 2025" },{ value: "19/03/2025", label: "19 de enero de 2025" },{ value: "18/03/2025", label: "18 de enero de 2025" } ];
+  const fechasCongreso = [{ value: "20/03/2025", label: "20 de marzo de 2025" },{ value: "21/03/2025", label: "21 de marzo de 2025" },{ value: "19/03/2025", label: "19 de marzo de 2025" }];
 
   useEffect(() => {
     const loadPonentes = async () => {
