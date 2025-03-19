@@ -58,7 +58,7 @@ export default function MyInscriptions() {
     
       // Condición: asistidas es 0 (cumplió con el mínimo necesario)
       if (asistidas >= minimo) {
-        return "🎉 ¡Felicidades! Te has inscrito en todas las conferencias necesarias, ahora asiste a todas ellas para obtener tu certificado. ¡Gran trabajo! 🌟";
+        return `🎉 ¡Felicidades! Te has inscrito en todas las conferencias necesarias (${minimo}), ahora asiste a todas ellas para obtener tu certificado. ¡Gran trabajo! 🌟 \n Puedes seguir inscribiéndote a más conferencias si lo deseas!`;
       }
     
       // Casos genéricos según el progreso
