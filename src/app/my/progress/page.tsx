@@ -149,7 +149,7 @@ export default function MyInscriptions() {
                 animate={{
                   width: `${
                     asistenciasInfo.cantidad_total_conferencias > 0
-                      ? (asistenciasInfo.cantidad_inscritas_actualmente /
+                      ? (asistenciasInfo.cantidad_asistidas /
                           asistenciasInfo.cantidad_minima_conferencias) *
                         100
                       : 0
