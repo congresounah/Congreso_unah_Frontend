@@ -239,6 +239,8 @@ export default function Cronograma({
   const [loading, setLoading] = useState(true);
 
   const dias = [
+    { fecha: "18/03/2025", label: "Martes 18" },
+    { fecha: "19/03/2025", label: "Miercoles 19" },
     { fecha: "20/03/2025", label: "Jueves 20" },
     { fecha: "21/03/2025", label: "Viernes 21" },
   ];
