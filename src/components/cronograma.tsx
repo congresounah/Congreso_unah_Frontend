@@ -239,8 +239,6 @@ export default function Cronograma({
   const [loading, setLoading] = useState(true);
 
   const dias = [
-    { fecha: "18/03/2025", label: "Martes 18" },
-    { fecha: "19/03/2025", label: "Miercoles 19" },
     { fecha: "20/03/2025", label: "Jueves 20" },
     { fecha: "21/03/2025", label: "Viernes 21" },
   ];
@@ -315,11 +313,11 @@ export default function Cronograma({
   }, [diaSeleccionado, fetchPrompt, idUsuario]);
 
   return (
-    <div className="w-5/6 px-4 md:px-8 mt-10 w-full flex flex-col items-center select-none mx-auto">
+    <div className="px-4 sm:px-4 md:px-8 mt-10 w-full flex flex-col items-center select-none mx-auto">
       <h2 className={`sm:text-6xl text-5xl mb-10 ${titleStyles || ""}`}>
         Conferencias
       </h2>
-      <div className="flex lg:w-3/5 w-full flex-nowrap justify-between gap-1 overflow-x-auto">
+      <div className="flex lg:w-3/5 w-full flex-nowrap justify-around gap-1 overflow-x-auto">
         {dias.map((dia) => (
           <div
             key={dia.fecha}

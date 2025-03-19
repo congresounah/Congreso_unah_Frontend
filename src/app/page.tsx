@@ -1,7 +1,7 @@
 "use client"; // Necesario para que el código se ejecute en el cliente
 
 import { useEffect, useState } from "react";
-// import Cronograma from "@/components/cronograma";
+import Cronograma from "@/components/cronograma";
 import Carousel from "@/components/ejes_tematicos";
 import Navbar from "@/components/Navbar";
 import Ponentes from "@/components/ponentes";
@@ -183,13 +183,13 @@ export default function Home() {
             <h2 className="text-center lg:text-left">Inteligencia, Innovación y
               Sostenibilidad en Acción</h2>
             {showRegisterButton && (
-              <a href="/pdf/congreso.xlsx" download="Cronograma_CIT">
+              <a href="/pdf/Cronograma Congreso Universitario de Innovación.pdf" download="Cronograma_CIT">
                 <Button
                   text="Descargar cronograma"
                   action={() => (console.info("e"))}
                   variant="primary"
                   styleType="outlined"
-                  className="w-full md:w-max mx-auto mx-auto lg:mx-0 mt-4 tracking-wide"
+                  className="w-full md:w-max mx-auto lg:mx-0 mt-4 tracking-wide"
                 >
                   <span className="material-symbols-outlined">
                     download
@@ -310,19 +310,12 @@ export default function Home() {
                 </div>
               </section>
               <section id="conferencias" className="intersection-animate">
-                {/* <Cronograma
+                <Cronograma
                   customStyles={{
                     button: "hidden",
                   }}                 
                 >
-
-                </Cronograma> */}
-              <h2 className={`sm:text-6xl text-5xl mb-10 flex justify-center mt-20`}>
-              Conferencias
-              </h2>
-              <h2 className={`sm:text-4xl text-3xl mb-10 flex justify-center whitespace-nowrap`}>
-              Proximamente en Marzo
-              </h2>
+                </Cronograma>
               </section>
 
 
