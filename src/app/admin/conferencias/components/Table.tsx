@@ -147,7 +147,7 @@ const TableComponent = () => {
               <th className="px-4 py-2 text-left border-b">Lugar</th>
               <th className="px-4 py-2 text-left border-b">Horario</th>
               <th className="px-4 py-2 text-left border-b">Fecha</th>
-              <th className="px-4 py-2 text-left border-b">Cupos</th>
+              <th className="px-4 py-2 text-left border-b">Cupos Disponibles</th>
               <th className="px-4 py-2 text-left border-b">Acciones</th>
             </tr>
           </thead>
