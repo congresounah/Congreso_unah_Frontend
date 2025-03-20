@@ -171,13 +171,14 @@ const CheckComponent = () => {
       >
         Hora Entrada
       </button>
+      {/* Buttons 
       <button
         onClick={() => handleButtonClick('salida')}
         className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded-md"
       >
         Hora Salida
       </button>
-
+      */}  
       {/* Modal */}
       {isModalOpen && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 px-4">
