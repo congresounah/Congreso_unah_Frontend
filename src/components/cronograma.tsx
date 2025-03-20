@@ -341,7 +341,7 @@ export default function Cronograma({
       </div>
 
       <h3 className={`text-4xl m-10 ${subtitleStyles || ""}`}>
-        {dias.find((dia) => dia.fecha === diaSeleccionado)?.label} de Enero
+        {dias.find((dia) => dia.fecha === diaSeleccionado)?.label} de Marzo
       </h3>
 
       <div id="conferencias" className="w-full md:w-6/6 lg:w-4/6">
