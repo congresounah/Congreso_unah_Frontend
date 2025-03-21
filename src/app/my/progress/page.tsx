@@ -117,7 +117,7 @@ export default function MyInscriptions() {
         Mis conferencias
       </h2>
 
-      <div className="md:w-4/6 w-11/12 mx-auto flex flex-col space-y-6 mt-6">
+      <div className="md:w-4/6 w-11/12 mx-auto flex flex-col space-y-6 mb-[40px]">
         <div className="relative mt-10 lg:w-1/2 w-full h-10 rounded-full bg-[#14110b] shadow-lg ">
           <h2 className="absolute inset-0 flex items-center justify-center text-center top-0 text-white">
             {asistenciasInfo.cantidad_asistidas}/
