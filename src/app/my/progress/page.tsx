@@ -210,7 +210,7 @@ export default function MyInscriptions() {
     asistenciasInfo.cantidad_asistidas >=
       asistenciasInfo.cantidad_minima_conferencias && (
       <div className="mx-auto lg:mb-12">
-                <Button
+               { /*<Button
                   text="Descargar Recursos"
                   action={handleDescargar}
                   variant="primary"
@@ -220,7 +220,7 @@ export default function MyInscriptions() {
                   <span className="material-symbols-outlined">
                     download
                   </span>
-                </Button>
+                </Button>*/}
       </div>
     )}
       <div className="lg:-mt-12">
