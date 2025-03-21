@@ -209,7 +209,7 @@ export default function MyInscriptions() {
       {asistenciasInfo &&
     asistenciasInfo.cantidad_asistidas >=
       asistenciasInfo.cantidad_minima_conferencias && (
-      <div className="mx-auto lg:mb-12 flex justify-center items-center px-4">
+      <div className="mx-auto lg:mb-12 flex justify-center items-center px-4 text-lg">
                { /*<Button
                   text="Descargar Recursos"
                   action={handleDescargar}
