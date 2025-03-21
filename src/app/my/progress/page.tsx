@@ -6,7 +6,7 @@ import { downloadCertificateById, fetchAsistenciasByUsuarioId } from "@/services
 import { motion } from "framer-motion";
 import Loader from "@/components/Loading";
 import { Asistencias } from "@/interfaces/participantes";
-import Button from "@/components/Button";
+// import Button from "@/components/Button";
 
 export default function MyInscriptions() {
   const [idUsuario, setIdUsuario] = useState<number>(0);
