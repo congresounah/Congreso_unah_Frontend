@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import Cronograma from "@/components/cronograma";
 import Cookies from "js-cookie";
-import { downloadCertificateById, fetchAsistenciasByUsuarioId } from "@/services/user";
+import { fetchAsistenciasByUsuarioId } from "@/services/user";
 import { motion } from "framer-motion";
 import Loader from "@/components/Loading";
 import { Asistencias } from "@/interfaces/participantes";
@@ -52,17 +52,17 @@ export default function MyInscriptions() {
     return "🌟 No te desanimes, ve a más conferencias y avanza hacia tu meta.";
   };
 
-  const handleDescargar = async () => {
-    try {
-      if (!idUsuario) {
-        console.error("ID de usuario no disponible para la descarga.");
-        return;
-      }
-      await downloadCertificateById(idUsuario);
-    } catch (error) {
-      console.error("Error al intentar descargar recursos:", error);
-    }
-  };
+  // const handleDescargar = async () => {
+  //   try {
+  //     if (!idUsuario) {
+  //       console.error("ID de usuario no disponible para la descarga.");
+  //       return;
+  //     }
+  //     await downloadCertificateById(idUsuario);
+  //   } catch (error) {
+  //     console.error("Error al intentar descargar recursos:", error);
+  //   }
+  // };
   
   useEffect(() => {
     const token = Cookies.get("authToken");
