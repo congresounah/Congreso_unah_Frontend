@@ -209,7 +209,7 @@ export default function MyInscriptions() {
       {asistenciasInfo &&
     asistenciasInfo.cantidad_asistidas >=
       asistenciasInfo.cantidad_minima_conferencias && (
-      <div className="mx-auto lg:mb-12">
+      <div className="mx-auto lg:mb-12 flex justify-center items-center">
                { /*<Button
                   text="Descargar Recursos"
                   action={handleDescargar}
@@ -221,6 +221,7 @@ export default function MyInscriptions() {
                     download
                   </span>
                 </Button>*/}
+                <h2 className="montserrat-font">Felicidades, te haremos llegar pronto tu diploma.</h2>
       </div>
     )}
       <div className="lg:-mt-12">
