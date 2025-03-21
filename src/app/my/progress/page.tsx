@@ -112,7 +112,7 @@ export default function MyInscriptions() {
   }
 
   return (
-    <div className="h-screen w-full overflow-y-scroll flex flex-col">
+    <div className="h-screen w-full overflow-y-scroll flex flex-col justify-center items-center">
       <h2 className="md:w-4/6 w-11/12 mx-auto text-3xl mt-10">
         Mis conferencias
       </h2>
