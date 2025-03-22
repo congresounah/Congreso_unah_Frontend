@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect} from "react";
-import { FaEdit, FaSearch, FaEye, FaPaperPlane} from "react-icons/fa";
+import { FaEdit, FaSearch, FaEye,} from "react-icons/fa";
 import { obtenerUsuarios } from "@/services/participantes/participantes";
 import { Participantes } from "@/interfaces/participantes";
 import { useRouter } from "next/navigation";
@@ -22,7 +22,7 @@ const TableComponent = () => {
   const router = useRouter();
   const [filteredData, setFilteredData] = useState<Participantes[]>([]);
   const [sortOrder, setSortOrder] = useState<"ASC" | "DESC">("ASC");
-  const [alert, setAlert] = useState<{ message: string; type: "success" | "error" } | null>(null);
+  const [alert] = useState<{ message: string; type: "success" | "error" } | null>(null);
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
@@ -94,7 +94,7 @@ const TableComponent = () => {
     setFilteredData(filtered);
   };
 
-  const enviarCertificado = async (id: string) => {
+ {/* const enviarCertificado = async (id: string) => {
     try {
       const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/admin/certificates/send/${id}`, {
         method: "POST",
@@ -114,7 +114,7 @@ const TableComponent = () => {
     }
 
     setTimeout(() => setAlert(null), 3000);
-  };
+  };*/}
 
   if (loading) {
     return (
@@ -190,13 +190,13 @@ const TableComponent = () => {
                 <td className="px-4 py-2 border-b">{usuario.correo}</td>
                 <td className="px-4 py-2 border-b text-center">
                   <div className="flex flex-col lg:flex-row items-center justify-center gap-1">
-                    <button
+                    {/*<button
                       className="bg-blue-500 text-white px-2 py-1 rounded shadow hover:bg-blue-600 text-sm font-300 flex items-center gap-1 w-full"
                       onClick={() => enviarCertificado(usuario.id_usuario.toString())}
                     >
                       <FaPaperPlane size={13} />
                       Enviar
-                    </button>
+                    </button>*/}
                     <button
                       className="bg-yellow-500 text-white px-2 py-1 rounded shadow hover:bg-yellow-600 text-sm font-300 flex items-center gap-1 w-full"
                       onClick={() => router.push(`/admin/home/${usuario.id_usuario}?visualizar=false`)}
